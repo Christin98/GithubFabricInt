@@ -1,0 +1,38 @@
+table StoreID_Table
+	lineageTag: defea1a6-2631-475b-831b-bbe8ce1a2b64
+
+	column store_id
+		dataType: string
+		lineageTag: 6a06cda9-122a-4431-9e06-f1d1b6aea3f0
+		summarizeBy: none
+		sourceColumn: store_id
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 2,
+				  "kind": 1,
+				  "supportsMultipleValues": true,
+				  "selectAllValue": ""
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StoreID_Table = m
+		mode: import
+		queryGroup: IM-Parameter
+		source =
+				let
+				    TableName = IMTableName,
+				    Query = "" & TableName & "
+				    | where isnotempty(store_id)
+				    | distinct store_id",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

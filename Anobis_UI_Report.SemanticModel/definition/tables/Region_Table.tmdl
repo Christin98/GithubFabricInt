@@ -1,0 +1,38 @@
+table Region_Table
+	lineageTag: ee5d8283-2ea9-4f25-9c00-58bde5ae3b79
+
+	column region
+		dataType: string
+		lineageTag: 22f76dfc-3e32-4fad-b5d1-29584bd3b6ae
+		summarizeBy: none
+		sourceColumn: region
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 2,
+				  "kind": 1,
+				  "supportsMultipleValues": true,
+				  "selectAllValue": ""
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Region_Table = m
+		mode: import
+		queryGroup: IM-Parameter
+		source =
+				let
+				    TableName = IMTableName,
+				    Query = "" & TableName & "
+				    | where isnotempty(region)
+				    | distinct region",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

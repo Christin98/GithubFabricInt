@@ -1,0 +1,127 @@
+expression Cluster = "https://trd-rb6aweuqwuww86rzbr.z6.kusto.fabric.microsoft.com" meta [IsParameterQuery=true, List={"https://trd-rb6aweuqwuww86rzbr.z6.kusto.fabric.microsoft.com", "https://trd-tmr5b6twv9s1stvwa6.z4.kusto.fabric.microsoft.com"}, DefaultValue="https://trd-rb6aweuqwuww86rzbr.z6.kusto.fabric.microsoft.com", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 17f4e5c1-e22b-4030-bfde-e8b49f7c2f3c
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression DB = "nonprod" meta [IsParameterQuery=true, List={"nonprod", "metrics"}, DefaultValue="nonprod", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 6085438b-6531-4b44-86d2-1384897fed4d
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression FoodTableName = "food_output_table" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 26f94ed6-7227-4b4c-bbfd-0827aef5a686
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression IMTableName = "instamart_output_table" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 0099b415-c2cd-4f86-9d07-37e7ba1ab05e
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression City_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 0bb539b6-7e39-4185-8166-e4e444a8cbe2
+	queryGroup: Food-Parameter
+	parameterValuesColumn: City_Table.city
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression Area_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 8e185764-2dce-485f-8df0-f991c5c8b65d
+	queryGroup: Food-Parameter
+	parameterValuesColumn: Area_Table.area
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression BusinessClassifier_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 5f1d811f-ba15-48d0-a255-2bade4e4033d
+	queryGroup: Food-Parameter
+	parameterValuesColumn: BusinessClassifier_Table.business_classifier
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression BusinessUnit_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 230802d2-38ae-4710-8849-fd536b307ef0
+	queryGroup: Food-Parameter
+	parameterValuesColumn: BusinessUnit_Table.business_unit
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression TimeSlot_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 14f6203b-5048-45a9-b89a-994965d7a755
+	queryGroup: Food-Parameter
+	parameterValuesColumn: TimeSlot_Table.time_slot
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression IM_City_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: a76c54ee-e0c1-4d5d-9e95-195504501de1
+	queryGroup: IM-Parameter
+	parameterValuesColumn: IM_City_Table.city
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression Region_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 25d36a15-41fc-449c-953b-5c84a853abaa
+	queryGroup: IM-Parameter
+	parameterValuesColumn: Region_Table.region
+
+	annotation PBI_ResultType = Null
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression Zone_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 0a5a91b3-4bf2-435e-952b-5e3ec4eb4ee2
+	queryGroup: IM-Parameter
+	parameterValuesColumn: Zone_Table.zone
+
+	annotation PBI_ResultType = Null
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression StoreID_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 6d2fc44a-a303-491e-a686-a8db5a662af3
+	queryGroup: IM-Parameter
+	parameterValuesColumn: StoreID_Table.store_id
+
+	annotation PBI_ResultType = Null
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression DeliveryType_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 797139e8-2f28-4272-91e9-137586bcb457
+	queryGroup: IM-Parameter
+	parameterValuesColumn: DeliveryType_Table.delivery_type
+
+	annotation PBI_ResultType = Null
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression DeliverySlot_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 5e4a0447-069e-4967-805b-3f15f600fe5d
+	queryGroup: IM-Parameter
+	parameterValuesColumn: DeliverySlot_Table.delivery_slot
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
