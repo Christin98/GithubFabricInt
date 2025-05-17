@@ -1,0 +1,69 @@
+table 'AHP Parameter Bottom'
+	lineageTag: 9f0342c0-f592-4cd9-8089-999eebdfef7c
+
+	column 'AHP Parameter Bottom'
+		lineageTag: bf7209f0-7446-4246-ab03-c4c43cf4b091
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'AHP Parameter Bottom Order'
+
+		relatedColumnDetails
+			groupByColumn: 'AHP Parameter Bottom Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AHP Parameter Bottom Fields'
+		isHidden
+		lineageTag: 031f69e0-011f-4af6-9c8e-ca8b5ac880d6
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'AHP Parameter Bottom Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AHP Parameter Bottom Order'
+		isHidden
+		formatString: 0
+		lineageTag: fae0e6e4-14a3-42ce-be43-8129ff16d3b0
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value4
+		formatString: 0
+		lineageTag: 2c05c1cf-2577-4d79-bc26-4ff524b88c6b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value5
+		lineageTag: 1a258773-5256-4da1-a8ba-d36f82fbb376
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value5]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'AHP Parameter Bottom' = calculated
+		mode: import
+		source =
+				{
+				    ("Sanctioned", NAMEOF('AHP All Data'[No. of Sanctioned Measure]), 0, 0, "Sanctioned"),
+				    ("Completed", NAMEOF('AHP All Data'[Completed Measure]), 1, 1, "Completed"),
+				    ("Not Started", NAMEOF('AHP All Data'[Not Started measure]), 2, 2, "Not Started"),
+				    ("Under Progress", NAMEOF('AHP All Data'[Under Progress Measure]), 3, 3, "Under Progress"),
+				    ("Allotted", NAMEOF('AHP All Data'[Allotted Measure]), 4, 4, "Allotted"),
+				    ("Occupied", NAMEOF('AHP All Data'[Occupied Measure]), 5, 5, "Occupied")
+				}
+
+	annotation PBI_Id = 470f212eff9149efa5d2ba5127fc3754
+

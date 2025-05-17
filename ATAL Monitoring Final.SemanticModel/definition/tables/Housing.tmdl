@@ -1,0 +1,132 @@
+table Housing
+	lineageTag: 5ef57193-e7f0-41b9-a425-05e4f47233ea
+
+	measure 'Grant Utilisrd Vs Grant Released' =
+			
+			DIVIDE
+			(
+			SUM
+			(Housing[Utilized Amount]),
+			SUM
+			(Housing[Grant Amount]),
+			0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 57f9aeb1-82da-4924-bf34-f5698a12a74a
+
+	measure 'House Completed Vs Houses Sanctioned' =
+			
+			DIVIDE
+			(
+			SUM
+			(Housing[No. of House compledted (Urban)]),
+			SUM
+			(Housing[No. of House Sectioned (urban)]),
+			0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 89856fd1-39b8-4f0c-8d52-55f8769c43b0
+
+	measure 'House Not Started Vs Houses Sanctioned' =
+			
+			DIVIDE
+			(
+			SUM
+			(Housing[No.o f House nOt sectioned]),
+			SUM
+			(Housing[No.of House Sectioned (BLC)]),
+			0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ff17b309-fccd-4973-a4d6-85080087dca6
+
+	column Scheme
+		dataType: string
+		lineageTag: 4448acc0-cc98-4af8-8c84-144355e1f22b
+		summarizeBy: none
+		sourceColumn: Scheme
+
+		annotation SummarizationSetBy = Automatic
+
+	column District
+		dataType: string
+		lineageTag: 81585293-f2e5-4645-bcf9-58d48a847117
+		summarizeBy: none
+		sourceColumn: District
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grant Amount'
+		dataType: double
+		lineageTag: 97154f63-feef-4890-b03c-6273c68e4922
+		summarizeBy: sum
+		sourceColumn: Grant Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Utilized Amount'
+		dataType: double
+		formatString: 0.00
+		lineageTag: 7ba79274-fa47-4ac3-b8cb-8a1af42cc84f
+		summarizeBy: sum
+		sourceColumn: Utilized Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'No. of House Sectioned (urban)'
+		dataType: double
+		lineageTag: afa062b4-e5a6-44ca-82ea-bc6f32dab8ea
+		summarizeBy: sum
+		sourceColumn: No. of House Sectioned (urban)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'No. of House compledted (Urban)'
+		dataType: double
+		lineageTag: 098d2e5e-298a-4826-8991-3373dc9446c3
+		summarizeBy: sum
+		sourceColumn: No. of House compledted (Urban)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'No.of House Sectioned (BLC)'
+		dataType: double
+		lineageTag: ac1c0f3d-1ad9-43d6-a1ad-acc2ebf19694
+		summarizeBy: sum
+		sourceColumn: No.of House Sectioned (BLC)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'No.o f House nOt sectioned'
+		dataType: double
+		lineageTag: 069f53b4-bcae-487c-bbc9-52408db276f3
+		summarizeBy: sum
+		sourceColumn: No.o f House nOt sectioned
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Housing = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Abhinay\Downloads\ATAL Project\district name_CG.xlsx"), null, true),
+				    Housing_Sheet = Source{[Item="Housing",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Housing_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Scheme", type text}, {"District", type text}, {"Grant Amount", type number}, {"Utilized Amount", type number}, {"No. of House Sectioned (urban)", type number}, {"No. of House compledted (Urban)", type number}, {"No.of House Sectioned (BLC)", type number}, {"No.o f House nOt sectioned", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

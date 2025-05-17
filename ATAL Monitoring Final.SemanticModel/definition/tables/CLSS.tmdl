@@ -1,0 +1,113 @@
+table CLSS
+	lineageTag: b5eb7dc5-f93c-45db-8be1-a50aee2b1fff
+
+	column State
+		dataType: string
+		lineageTag: 756d0ea7-30a3-4869-9116-1850f85e2678
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EWS/LIG (LoanAmount/ Investment)(Rs in Cr.)'
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a334bd6a-4429-4f23-bdfe-eaaca660c452
+		summarizeBy: sum
+		sourceColumn: EWS/LIG (LoanAmount/ Investment)(Rs in Cr.)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EWS/LIG (CentralSubsidy Amount)(Rs in Cr.)'
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 421ba99e-6766-4e3a-ae91-4c4c147a3866
+		summarizeBy: sum
+		sourceColumn: EWS/LIG (CentralSubsidy Amount)(Rs in Cr.)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EWS/LIG (No. of BeneficiaryHouseholds)(Nos)'
+		dataType: int64
+		formatString: #,0
+		lineageTag: f3e23128-0f17-4dc8-a0f8-3959e9de9659
+		summarizeBy: sum
+		sourceColumn: EWS/LIG (No. of BeneficiaryHouseholds)(Nos)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MIG (LoanAmount/ Investment)(Rs in Cr.)'
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 525a0ac9-dd67-43d2-b3f3-353c4f29ce8b
+		summarizeBy: sum
+		sourceColumn: MIG (LoanAmount/ Investment)(Rs in Cr.)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MIG (CentralSubsidy Amount)(Rs in Cr.)'
+		dataType: double
+		lineageTag: f95b4907-1aad-47be-94a1-c9e05308d952
+		summarizeBy: sum
+		sourceColumn: MIG (CentralSubsidy Amount)(Rs in Cr.)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'MIG (No. of BeneficiaryHouseholds)(Nos)'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0c6a37e0-6ad5-45b6-83a0-ea4472a227ab
+		summarizeBy: sum
+		sourceColumn: MIG (No. of BeneficiaryHouseholds)(Nos)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total (LoanAmount/ Investment)(Rs in Cr.)'
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f6c90f28-54f4-4754-8795-9d808a3202fa
+		summarizeBy: sum
+		sourceColumn: Total (LoanAmount/ Investment)(Rs in Cr.)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total (CentralSubsidy Amount)(Rs in Cr.)'
+		dataType: double
+		formatString: "₹"\ #,0.00;#,0.00\ -"₹";"₹"\ #,0.00
+		lineageTag: c865bf45-a448-406d-a58c-e7d68a1b0683
+		summarizeBy: sum
+		sourceColumn: Total (CentralSubsidy Amount)(Rs in Cr.)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"as-IN"}
+
+	column 'Total (No. of BeneficiaryHouseholds)(Nos)'
+		dataType: int64
+		formatString: #,0
+		lineageTag: bd71bec0-5ec8-4e9b-ba8e-152059e646e9
+		summarizeBy: sum
+		sourceColumn: Total (No. of BeneficiaryHouseholds)(Nos)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CLSS = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Abhinay\Downloads\CLss and other.xlsx"), null, true),
+				    CLSS_Sheet = Source{[Item="CLSS",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(CLSS_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"State/UT", type text}, {"EWS/ LIG", type any}, {"Column3", type any}, {"Column4", type any}, {"MIG", type any}, {"Column6", type any}, {"Column7", type any}, {"TOTAL", type any}, {"Column9", type any}, {"Column10", type any}}),
+				    #"Promoted Headers1" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers1",{{"Column1", type text}, {"Loan#(lf)Amount/ Investment#(lf)(Rs in Cr.)", type number}, {"Central#(lf)Subsidy Amount#(lf)(Rs in Cr.)", type number}, {"No. of Beneficiary#(lf)Households#(lf)(Nos)", Int64.Type}, {"Loan#(lf)Amount/ Investment#(lf)(Rs in Cr.)_1", type number}, {"Central#(lf)Subsidy Amount#(lf)(Rs in Cr.)_2", type number}, {"No. of Beneficiary#(lf)Households#(lf)(Nos)_3", Int64.Type}, {"Loan#(lf)Amount/ Investment#(lf)(Rs in Cr.)_4", type number}, {"Central#(lf)Subsidy Amount#(lf)(Rs in Cr.)_5", type number}, {"No. of Beneficiary#(lf)Households#(lf)(Nos)_6", Int64.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"Column1", "State"}, {"Loan#(lf)Amount/ Investment#(lf)(Rs in Cr.)", "EWS/LIG (Loan#(lf)Amount/ Investment)#(lf)(Rs in Cr.)"}, {"Central#(lf)Subsidy Amount#(lf)(Rs in Cr.)", "EWS/LIG (Central#(lf)Subsidy Amount)#(lf)(Rs in Cr.)"}, {"No. of Beneficiary#(lf)Households#(lf)(Nos)", "EWS/LIG (No. of Beneficiary#(lf)Households)#(lf)(Nos)"}, {"Loan#(lf)Amount/ Investment#(lf)(Rs in Cr.)_1", "MIG (Loan#(lf)Amount/ Investment)#(lf)(Rs in Cr.)"}, {"Central#(lf)Subsidy Amount#(lf)(Rs in Cr.)_2", "MIG (Central#(lf)Subsidy Amount)#(lf)(Rs in Cr.)"}, {"No. of Beneficiary#(lf)Households#(lf)(Nos)_3", "MIG (No. of Beneficiary#(lf)Households)#(lf)(Nos)"}, {"Loan#(lf)Amount/ Investment#(lf)(Rs in Cr.)_4", "Total (Loan#(lf)Amount/ Investment)#(lf)(Rs in Cr.)"}, {"Central#(lf)Subsidy Amount#(lf)(Rs in Cr.)_5", "Total (Central#(lf)Subsidy Amount)#(lf)(Rs in Cr.)"}, {"No. of Beneficiary#(lf)Households#(lf)(Nos)_6", "Total (No. of Beneficiary#(lf)Households)#(lf)(Nos)"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

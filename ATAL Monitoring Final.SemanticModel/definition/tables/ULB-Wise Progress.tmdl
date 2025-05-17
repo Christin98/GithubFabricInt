@@ -1,0 +1,126 @@
+table 'ULB-Wise Progress'
+	lineageTag: 6ecae4b0-93e0-4431-8967-bf90fc8292f7
+
+	measure 'Sanctioned Vs Completed (ULB)' = DIVIDE(SUM('ULB-Wise Progress'[Completed]),SUM('ULB-Wise Progress'[Sanctioned DUs]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: acace730-158a-4a90-a23b-97eeff32a3c3
+
+	measure 'Sanctioned Vs Not Started (ULB)' = DIVIDE(SUM('ULB-Wise Progress'[Not-Started]),SUM('ULB-Wise Progress'[Sanctioned DUs]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 91daa171-97bf-4e98-877c-f11eb4ec23a3
+
+	measure 'Completed Vs Under Progress (ULB)' = DIVIDE(SUM('ULB-Wise Progress'[Total]),SUM('ULB-Wise Progress'[Completed]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e79d26c1-8b3c-4e0c-ba4a-679f8431fc7e
+
+	measure 'Completed Measure (ULB)' = SUM('ULB-Wise Progress'[Completed])
+		formatString: 0
+		lineageTag: 37b583ac-a677-4c42-b20e-318881d77941
+
+	measure 'Sanctioned Measure (ULB)' = SUM('ULB-Wise Progress'[Sanctioned DUs])
+		formatString: 0
+		lineageTag: b548208c-88c8-499a-86a1-5a6a68b3b45b
+
+	measure 'Under Progress Measure (ULB)' = SUM('ULB-Wise Progress'[Total])
+		formatString: 0
+		lineageTag: 28fd3f69-53b7-473f-9acb-7d0d0807be6f
+
+	measure 'Not-Started Measure (ULB)' = SUM('ULB-Wise Progress'[Not-Started])
+		formatString: 0
+		lineageTag: 8b47c64d-14c1-4543-ace0-c4de1a79a443
+
+	column 'S.No.'
+		dataType: int64
+		formatString: 0
+		lineageTag: ec25ba60-08d1-46f6-9a77-f749319747d5
+		summarizeBy: sum
+		sourceColumn: S.No.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ULB Name'
+		dataType: string
+		lineageTag: fbf4a384-b34c-4899-8a99-e906c35b75cf
+		summarizeBy: none
+		sourceColumn: ULB Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sanctioned DUs'
+		dataType: int64
+		formatString: 0
+		lineageTag: b8a0ba6f-55d3-48e1-9125-f0c397a6ab83
+		summarizeBy: sum
+		sourceColumn: Sanctioned DUs
+
+		annotation SummarizationSetBy = Automatic
+
+	column Completed
+		dataType: int64
+		formatString: 0
+		lineageTag: f382250d-f12e-48b1-b15c-89cfb9079bba
+		summarizeBy: sum
+		sourceColumn: Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column Foundation
+		dataType: int64
+		formatString: 0
+		lineageTag: ccd123bd-11b7-4d06-8155-a4fdafb10d27
+		summarizeBy: sum
+		sourceColumn: Foundation
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lintel
+		dataType: int64
+		formatString: 0
+		lineageTag: ac05692c-6b29-41bb-9d0b-f936f93f2110
+		summarizeBy: sum
+		sourceColumn: Lintel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Roof
+		dataType: int64
+		formatString: 0
+		lineageTag: b6d24acd-eb48-419c-9e34-84fe970c98db
+		summarizeBy: sum
+		sourceColumn: Roof
+
+		annotation SummarizationSetBy = Automatic
+
+	column Total
+		dataType: int64
+		formatString: 0
+		lineageTag: f1588e8d-803b-43c0-b587-099ac0bad395
+		summarizeBy: sum
+		sourceColumn: Total
+
+		annotation SummarizationSetBy = Automatic
+
+	column Not-Started
+		dataType: int64
+		formatString: 0
+		lineageTag: 006d5cb6-cf6d-41e0-ac19-0acbd7c6f3f0
+		summarizeBy: sum
+		sourceColumn: Not-Started
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'ULB-Wise Progress' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Abhinay\Downloads\ATAL Project\BLC ULB-Wise Progress.xlsx"), null, true),
+				    #"ULB-Wise Progress._Sheet" = Source{[Item="ULB-Wise Progress.",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"ULB-Wise Progress._Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"S.No.", Int64.Type}, {"ULB Name", type text}, {"Sanctioned DUs", Int64.Type}, {"Completed", Int64.Type}, {"Foundation", Int64.Type}, {"Lintel", Int64.Type}, {"Roof", Int64.Type}, {"Total", Int64.Type}, {"Not-Started", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

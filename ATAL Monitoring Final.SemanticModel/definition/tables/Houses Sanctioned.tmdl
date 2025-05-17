@@ -1,0 +1,40 @@
+table 'Houses Sanctioned'
+	lineageTag: b2075f43-1e48-40b2-8075-405688333a8b
+
+	measure 'Total Houses Sanctioned Values' = SUM('Houses Sanctioned'[Values])
+		formatString: #,0
+		lineageTag: 5cd0d91a-fc07-413f-a4e4-dbb4670e4790
+
+	column Name
+		dataType: string
+		lineageTag: 89b5fba0-0f22-4a0a-a40e-2b24a8305573
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Values
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4eab303d-954f-43d3-b66b-a0aaacb9e365
+		summarizeBy: sum
+		sourceColumn: Values
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Houses Sanctioned' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Abhinay\Downloads\CLss and other.xlsx"), null, true),
+				    #"Houses Sanctioned._Sheet" = Source{[Item="Houses Sanctioned.",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Houses Sanctioned._Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Name", type text}, {"Values", Int64.Type}}),
+				    #"Removed Bottom Rows" = Table.RemoveLastN(#"Changed Type",1)
+				in
+				    #"Removed Bottom Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

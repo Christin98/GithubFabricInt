@@ -1,0 +1,207 @@
+table 'Format 2B'
+	isHidden
+	lineageTag: 5f8d1474-6b91-4a7c-9795-d3e1caa46977
+
+	column 'Sr. No.'
+		dataType: string
+		isHidden
+		lineageTag: ece1dd4e-b066-41e1-b3a6-3190d3cf4ea5
+		summarizeBy: none
+		sourceColumn: Sr. No.
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Office / Scheme Name'
+		dataType: string
+		isHidden
+		lineageTag: a822e08b-4f04-4c2c-9750-0cca7e0c42b3
+		summarizeBy: none
+		sourceColumn: Office / Scheme Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Indicator
+		dataType: string
+		isHidden
+		lineageTag: 5dc762ca-e2d2-4edd-ae26-04ced43a8ebb
+		summarizeBy: none
+		sourceColumn: Indicator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Units (No/ Rs/ Kms)'
+		dataType: string
+		isHidden
+		lineageTag: 4af5517e-6bc1-4395-8229-b56766fce932
+		summarizeBy: none
+		sourceColumn: Units (No/ Rs/ Kms)
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Type of Data (Absolute No/Percentage/Formula (If any) etc) '
+		dataType: string
+		isHidden
+		lineageTag: 2e655b96-ab1e-4b1d-98e4-7a132bfc26c3
+		summarizeBy: none
+		sourceColumn: "Type of Data (Absolute No/Percentage/Formula (If any) etc) "
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frequency Of Data (Monthly/Quarterly/half Yearly/Yearly'
+		dataType: string
+		isHidden
+		lineageTag: 9908e438-a317-4ab5-95eb-c80f4bfb5386
+		summarizeBy: none
+		sourceColumn: Frequency Of Data (Monthly/Quarterly/half Yearly/Yearly
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lowest geographical unit for data availability (Member/ Household/ Group/Village/Gram Panchayat/Block/District/Division/State)'
+		dataType: string
+		isHidden
+		lineageTag: 653890de-856c-4926-9e6b-35eb715b30a5
+		summarizeBy: none
+		sourceColumn: Lowest geographical unit for data availability (Member/ Household/ Group/Village/Gram Panchayat/Block/District/Division/State)
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Source '
+		dataType: string
+		isHidden
+		lineageTag: ffc77974-8aa8-4de8-b034-99d32f09b359
+		summarizeBy: none
+		sourceColumn: "Data Source "
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Department Target (If any) '
+		dataType: string
+		isHidden
+		lineageTag: 8c0f53a8-b9cd-468f-888a-7a1f174ef3f0
+		summarizeBy: none
+		sourceColumn: "Department Target (If any) "
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data for Baseline '
+		dataType: string
+		isHidden
+		lineageTag: 53a55a7a-8c1e-4f6b-a19e-8151382c260d
+		summarizeBy: none
+		sourceColumn: "Data for Baseline "
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target (Denomenator Data For current month/quarter/year)'
+		dataType: string
+		isHidden
+		lineageTag: 2c4bd737-7833-461a-b447-c697cdc12164
+		summarizeBy: none
+		sourceColumn: Target (Denomenator Data For current month/quarter/year)
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Achievement(Numerator Data For current month/quarter/year)'
+		dataType: string
+		isHidden
+		lineageTag: 828d9162-124b-4567-850c-80110d675a0d
+		summarizeBy: none
+		sourceColumn: Achievement(Numerator Data For current month/quarter/year)
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Remark
+		dataType: string
+		isHidden
+		lineageTag: 0058f2f8-39b8-4478-9901-a666a1948bb4
+		summarizeBy: none
+		sourceColumn: Remark
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Achievement
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 416581df-9d1a-4293-812a-18046a96c7c0
+		summarizeBy: sum
+		sourceColumn: Achievement
+
+		changedProperty = DataType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 3b3e3b57-d319-4844-ba55-613b43c55047
+		summarizeBy: sum
+		sourceColumn: Target
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Final Result'
+		dataType: double
+		isHidden
+		lineageTag: ff9710b6-2558-4cd5-85b5-8383bc297d5b
+		summarizeBy: sum
+		sourceColumn: Final Result
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Format 2B' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Abhinay\Downloads\ATAL Project\Urban dept. KPIs format Revised 29.05.2024.xlsx"), null, true),
+				    #"Format 2B_Sheet" = Source{[Item="Format 2B",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Format 2B_Sheet", [PromoteAllScalars=true]),
+				    #"Promoted Headers1" = Table.PromoteHeaders(#"Promoted Headers", [PromoteAllScalars=true]),
+				    #"Promoted Headers2" = Table.PromoteHeaders(#"Promoted Headers1", [PromoteAllScalars=true]),
+				    #"Promoted Headers3" = Table.PromoteHeaders(#"Promoted Headers2", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers3",{{"Final Result", type number}, {"Target", type number}, {"Achievement", type number}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

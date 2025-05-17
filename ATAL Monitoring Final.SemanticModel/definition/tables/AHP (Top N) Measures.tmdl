@@ -1,0 +1,236 @@
+table 'AHP (Top N) Measures'
+	lineageTag: 841ff3ca-70ff-4f1c-bbed-852a41013359
+
+	measure 'AHP Rank by Records' = ```
+			
+			SWITCH(
+			    [Measure 2], 
+			    0, IF(
+			        [No. of Sanctioned Measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [No. of Sanctioned Measure] > 0), 
+			            [No. of Sanctioned Measure], 
+			            , 
+			            DESC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    ), 
+			    1, IF(
+			        [Completed Measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Completed Measure] > 0), 
+			            [Completed Measure], 
+			            , 
+			            DESC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    ), 
+			    2, IF(
+			        [Under Progress Measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Under Progress Measure] > 0), 
+			            [Under Progress Measure], 
+			            , 
+			            DESC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    ), 
+			    3, IF(
+			        [Not Started measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Not Started measure] > 0), 
+			            [Not Started measure], 
+			            , 
+			            DESC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    ), 
+			    4, IF(
+			        [Allotted Measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Allotted Measure] > 0), 
+			            [Allotted Measure], 
+			            , 
+			            DESC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    ), 
+			    5, IF(
+			        [Occupied Measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Occupied Measure] > 0), 
+			            [Occupied Measure], 
+			            , 
+			            DESC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 1d56fdb5-2652-440b-b6b3-78d103eba6fe
+
+	measure 'TOP10 AHP Rank' = ```
+			
+			IF(
+			    NOT(ISBLANK('AHP (Top N) Measures'[AHP Rank by Records])) && 
+			    'AHP (Top N) Measures'[AHP Rank by Records] <= SELECTEDVALUE('AHP (Top N) Measures'[Value]),
+			    1,
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: f2a1c80d-554d-4554-8884-1920b730f96d
+
+	measure 'AHP Top10 Title' = Selectedvalue('AHP (Top N) Measures'[Metric]) & " District Name by " & SELECTEDVALUE('AHP Parameter'[Value4])
+		lineageTag: b32c4b91-3e35-4285-9b58-1762e3366cf8
+
+	measure 'Bottom10 AHP Rank' = ```
+			
+			IF(
+			    NOT(ISBLANK('AHP (Top N) Measures'[AHP Rank by Records])) && 
+			    'AHP (Top N) Measures'[AHP Rank by Records],
+			    1,
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 28cbc791-d886-4cc5-a5ae-2beffc194813
+
+	measure 'AHP Bottom10 Title' = "Bottom District Name by " & SELECTEDVALUE('AHP Parameter Bottom'[Value5])
+		lineageTag: 3c6d79a2-f710-40c4-8413-ef14a3f8ea97
+
+	measure 'AHP Rank Bottom by Records' = ```
+			
+			SWITCH(
+			    [Measure 2],  
+			    0, IF(
+			        [Completed Measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Completed Measure] > 0), 
+			            [Completed Measure], 
+			            , 
+			            ASC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    ), 
+			    1, IF(
+			        [Under Progress Measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Under Progress Measure] > 0), 
+			            [Under Progress Measure], 
+			            , 
+			            ASC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    ), 
+			    2, IF(
+			        [Not Started measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Not Started measure] > 0), 
+			            [Not Started measure], 
+			            , 
+			            ASC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    ), 
+			    3, IF(
+			        [Allotted Measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Allotted Measure] > 0), 
+			            [Allotted Measure], 
+			            , 
+			            ASC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    ), 
+			    4, IF(
+			        [Occupied Measure] > 0,
+			        RANKX(
+			            FILTER(ALL('AHP All Data'[Name of the District]), [Occupied Measure] > 0), 
+			            [Occupied Measure], 
+			            , 
+			            ASC, 
+			            DENSE
+			        ),
+			        BLANK()
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: a9dcda31-7791-4629-b04b-2c4fa5cd8eab
+
+	measure 'Measure 2' = SELECTEDVALUE('AHP Parameter'[Value5])
+		formatString: 0
+		lineageTag: 95a7716a-a9da-43cc-80a9-eb0693727dfa
+
+	measure 'Measure 3' = SELECTEDVALUE('AHP Parameter Bottom'[Value4])
+		formatString: 0
+		lineageTag: 13024d7f-0a4d-41e9-98cf-cb37241d76a0
+
+	measure 'Measure 4' = ```
+			
+			SWITCH(
+			    [Measure 2],  
+			    0, 
+			        [Completed Measure] 
+			    , 
+			    1,
+			    [Not Started measure] 
+			    , 
+			    2, 
+			        [Under Progress Measure] , 
+			    3, 
+			        [Allotted Measure], 
+			    4, 
+			        [Occupied Measure] 
+			)
+			
+			```
+		formatString: 0
+		lineageTag: cdfde942-d8fa-4241-9e20-e95362c09c4a
+
+	column Value
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c2be936-a762-474c-a39b-3850da5a10ed
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metric
+		dataType: string
+		lineageTag: d2b2a53e-f6d9-42c3-9746-6168047d6aff
+		summarizeBy: none
+		sourceColumn: Metric
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'AHP (Top N) Measures' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlXSUQrJL1AwVYrViVYyNIBygQwwHyYNZMTGAgA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Value = _t, Metric = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Value", Int64.Type}, {"Metric", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

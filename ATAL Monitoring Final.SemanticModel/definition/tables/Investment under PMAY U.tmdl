@@ -1,0 +1,41 @@
+table 'Investment under PMAY U'
+	lineageTag: cb64583b-40fc-44c5-93bc-fa8554cd7097
+
+	measure 'Total PMAY_U Values' = SUM('Investment under PMAY U'[Values])
+		formatString: "₹"\ #,0;#,0\ -"₹";"₹"\ #,0
+		lineageTag: 04bc45c8-dda5-4973-a572-613ae580d6cb
+
+		annotation PBI_FormatHint = {"currencyCulture":"as-IN"}
+
+	column Name
+		dataType: string
+		lineageTag: e76370d6-d836-4907-a3fa-0e88e06b597b
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Values
+		dataType: int64
+		formatString: 0
+		lineageTag: 53cda5dd-1d22-40c0-aca6-1701362fcd25
+		summarizeBy: sum
+		sourceColumn: Values
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Investment under PMAY U' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Abhinay\Downloads\CLss and other.xlsx"), null, true),
+				    #"Investment under PMAY U_Sheet" = Source{[Item="Investment under PMAY U",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Investment under PMAY U_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Name", type text}, {"Values", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

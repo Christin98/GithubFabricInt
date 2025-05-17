@@ -1,0 +1,56 @@
+table EBUS
+	lineageTag: 90fbd615-c803-47b4-8f3d-3321c359329f
+
+	measure 'Deployment of Bus' = DIVIDE(SUM(EBUS[No. of Buses Deployed]), SUM(EBUS[Total Buses Sanctioned]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9ca3a9a2-01fd-423f-9dcd-fbc51a4943bc
+
+	column Scheme
+		dataType: string
+		lineageTag: 8d02019b-b028-4a31-b3a0-dbd070e74cec
+		summarizeBy: none
+		sourceColumn: Scheme
+
+		annotation SummarizationSetBy = Automatic
+
+	column District
+		dataType: string
+		lineageTag: b0ad10ed-ecc3-4c7b-8950-469171b92b30
+		summarizeBy: none
+		sourceColumn: District
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Buses Sanctioned'
+		dataType: int64
+		formatString: 0
+		lineageTag: 48190053-2162-49fe-afc5-4dca4ef6d4f2
+		summarizeBy: sum
+		sourceColumn: Total Buses Sanctioned
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'No. of Buses Deployed'
+		dataType: int64
+		formatString: 0
+		lineageTag: ae1bc8d0-aaf9-426f-86ca-c3deb6a23be9
+		summarizeBy: sum
+		sourceColumn: No. of Buses Deployed
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EBUS = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Abhinay\Downloads\ATAL Project\district name_CG.xlsx"), null, true),
+				    EBUS_Sheet = Source{[Item="EBUS",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(EBUS_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Scheme", type text}, {"District", type text}, {"Total Buses Sanctioned", Int64.Type}, {"No. of Buses Deployed", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

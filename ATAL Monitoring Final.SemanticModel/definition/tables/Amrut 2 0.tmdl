@@ -1,0 +1,184 @@
+table 'Amrut 2 0'
+	lineageTag: 7e1b223f-5077-4e28-8fd3-61b211191bfe
+
+	measure 'Water Supply Approved' =
+			
+			DIVIDE
+			(
+			SUM
+			('Amrut 2 0'[No. of Water supply Approved]),
+			SUM
+			('Amrut 2 0'[No. of water Sectioned]),
+			0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1eb51aaf-3ef8-4d0a-bfbd-044b904bd4d6
+
+	measure 'Water Supply Completed' =
+			
+			DIVIDE
+			(
+			SUM
+			('Amrut 2 0'[Water works Completed]),
+			SUM
+			('Amrut 2 0'[Water Works Awared]),
+			0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 960b97e7-7188-4434-b3c8-72c8d8bcd984
+
+	measure 'Water Supply Awarded' =
+			
+			DIVIDE
+			(
+			SUM
+			('Amrut 2 0'[Water Works Awared]),
+			SUM
+			('Amrut 2 0'[No. of Water supply Approved]),
+			0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6dd87b5b-8096-4a24-b278-c29e5a322f8c
+
+	measure 'Sewerage Work Sanctioned_' =
+			
+			DIVIDE
+			(
+			SUM
+			('Amrut 2 0'[Number of works Sanctioned]),
+			SUM
+			('Amrut 2 0'[Works of Sewerage DPR approved]),
+			0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ac7a99a9-4d54-4525-8eef-c3a48f20455b
+
+	measure 'Sewerage Work Order Issued' =
+			
+			DIVIDE
+			(
+			SUM
+			('Amrut 2 0'[Number of Work Order Issued]),
+			SUM
+			('Amrut 2 0'[Number of Adminsitrative Sanction]),
+			0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 107a51d8-fb30-4d13-9f0f-671726fff4da
+
+	measure 'Sewerage Adminsitrative Sanction' =
+			
+			DIVIDE
+			(
+			SUM
+			('Amrut 2 0'[Number of Adminsitrative Sanction]),
+			SUM
+			('Amrut 2 0'[Number of works Sanctioned]),
+			0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ce2f18d4-e8df-4f66-b4aa-eae82418dfef
+
+	column Scheme
+		dataType: string
+		lineageTag: c335df43-b54c-4d29-97ab-c3b35bc8ad7e
+		summarizeBy: none
+		sourceColumn: Scheme
+
+		annotation SummarizationSetBy = Automatic
+
+	column District
+		dataType: string
+		lineageTag: bcc2b821-a45c-474f-9df2-591cd09b77f1
+		summarizeBy: none
+		sourceColumn: District
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'No. of water Sectioned'
+		dataType: int64
+		formatString: 0
+		lineageTag: fbbdad03-b6c2-490e-8ffb-fa43d961a5ae
+		summarizeBy: sum
+		sourceColumn: No. of water Sectioned
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'No. of Water supply Approved'
+		dataType: int64
+		formatString: 0
+		lineageTag: 706a1008-c9e8-4a67-82cc-22c25acda64a
+		summarizeBy: sum
+		sourceColumn: No. of Water supply Approved
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Water Works Awared'
+		dataType: int64
+		formatString: 0
+		lineageTag: f0c074e4-f19b-432a-94b4-8e8691fb87f9
+		summarizeBy: sum
+		sourceColumn: Water Works Awared
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Water works Completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: acb93a2e-20e2-4c0a-9e06-750f4fcc37b8
+		summarizeBy: sum
+		sourceColumn: Water works Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Works of Sewerage DPR approved'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d3bcf84-8c5b-4dd3-9535-4480d57e6b7f
+		summarizeBy: sum
+		sourceColumn: Works of Sewerage DPR approved
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Number of works Sanctioned'
+		dataType: int64
+		formatString: 0
+		lineageTag: 567cbb97-b807-4f30-8277-216338837eff
+		summarizeBy: sum
+		sourceColumn: Number of works Sanctioned
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Number of Adminsitrative Sanction'
+		dataType: int64
+		formatString: 0
+		lineageTag: a39db4bf-5232-4537-ad54-0067246ec674
+		summarizeBy: sum
+		sourceColumn: Number of Adminsitrative Sanction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Number of Work Order Issued'
+		dataType: int64
+		formatString: 0
+		lineageTag: f9818e10-db3a-4eed-b37d-a77c36f9c1b9
+		summarizeBy: sum
+		sourceColumn: Number of Work Order Issued
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Amrut 2 0' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Abhinay\Downloads\ATAL Project\district name_CG.xlsx"), null, true),
+				    #"Amrut 2.0_Sheet" = Source{[Item="Amrut 2.0",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Amrut 2.0_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Scheme", type text}, {"District", type text}, {"No. of water Sectioned", Int64.Type}, {"No. of Water supply Approved", Int64.Type}, {"Water Works Awared", Int64.Type}, {"Water works Completed", Int64.Type}, {"Works of Sewerage DPR approved", Int64.Type}, {"Number of works Sanctioned", Int64.Type}, {"Number of Adminsitrative Sanction", Int64.Type}, {"Number of Work Order Issued", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
