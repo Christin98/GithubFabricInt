@@ -1,0 +1,160 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "22804215a3073a6002e9",
+  "position": {
+    "x": 10.791366906474819,
+    "y": 3453.2374100719421,
+    "z": 10000,
+    "height": 467.62589928057548,
+    "width": 1478.4172661870502,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "ribbonChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Armenia Import"
+                    }
+                  },
+                  "Property": "ORIGIN_COUNTRY"
+                }
+              },
+              "queryRef": "Armenia Import.ORIGIN_COUNTRY",
+              "nativeQueryRef": "ORIGIN_COUNTRY",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Armenia Import"
+                    }
+                  },
+                  "Property": "EXPORT_COUNTRY"
+                }
+              },
+              "queryRef": "Armenia Import.EXPORT_COUNTRY",
+              "nativeQueryRef": "EXPORT_COUNTRY",
+              "active": false
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "All Measures"
+                    }
+                  },
+                  "Property": "Total Value"
+                }
+              },
+              "queryRef": "All Measures.Total Value",
+              "nativeQueryRef": "Total Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "All Measures"
+                    }
+                  },
+                  "Property": "Total Quantity"
+                }
+              },
+              "queryRef": "All Measures.Total Quantity",
+              "nativeQueryRef": "Total Quantity"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "IndiaImport (2)"
+                  }
+                },
+                "Property": "ORIGIN_COUNTRY"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "IndiaImport (2)"
+                  }
+                },
+                "Property": "IMPORTER_NAME"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sum of UNIT VALUE USD and Sum of QUANTITY by ORIGIN COUNTRY'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

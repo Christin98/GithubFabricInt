@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "669291ff677ce7faf6ec",
+  "position": {
+    "x": 1.6606256912026183,
+    "y": 1778.3912607987645,
+    "z": 28000,
+    "height": 2807.7253027611214,
+    "width": 1491.3275935571291,
+    "tabOrder": 20000
+  },
+  "visualGroup": {
+    "displayName": "overlay.Importer",
+    "groupMode": "ScaleMode",
+    "objects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

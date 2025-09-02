@@ -1,0 +1,2128 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "showoverlay5",
+  "name": "Bookmark1a8e69f26bb588f4f3cb",
+  "options": {
+    "targetVisualNames": [
+      "5e812a22868abec0d901",
+      "ba87d7e15c8b00d923a0",
+      "686095b24d0034dac54d"
+    ]
+  },
+  "explorationState": {
+    "version": "1.11",
+    "activeSection": "ReportSectionbf80f847e879d7e9bd37",
+    "sections": {
+      "ReportSectionbf80f847e879d7e9bd37": {
+        "visualContainers": {
+          "9b54524c78e8d621d79a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7d74ac381d4c20c95159",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Date"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "e53a4bb6b8a6644e1e15",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Armenia Import"
+                            }
+                          },
+                          "Hierarchy": "Year Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2e473c46417cf435e193",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Armenia Import"
+                            }
+                          },
+                          "Hierarchy": "Year Hierarchy"
+                        }
+                      },
+                      "Level": "Months name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2c9e0478ef081eacbf74",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Value"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f82f737db204bbe10ad1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Quantity"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ea249dca5dcafb941867",
+                  "type": "Advanced",
+                  "expression": {
+                    "Arithmetic": {
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "All Measures"
+                            }
+                          },
+                          "Property": "Total Value"
+                        }
+                      },
+                      "Right": {
+                        "ScopedEval": {
+                          "Expression": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "All Measures"
+                                }
+                              },
+                              "Property": "Total Value"
+                            }
+                          },
+                          "Scope": []
+                        }
+                      },
+                      "Operator": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0210d8b918d8803278eb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Arithmetic": {
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "All Measures"
+                            }
+                          },
+                          "Property": "Total Quantity"
+                        }
+                      },
+                      "Right": {
+                        "ScopedEval": {
+                          "Expression": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "All Measures"
+                                }
+                              },
+                              "Property": "Total Quantity"
+                            }
+                          },
+                          "Scope": []
+                        }
+                      },
+                      "Operator": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e77f182c3cbe37230b45",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fd5e57cdab21291d9d8f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6be5ca06dcbe6d208c24",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "CLEARANCE_CUSTOMS_OFFICE_CODE_AND_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Columns": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Armenia Import"
+                            }
+                          },
+                          "Hierarchy": "Year Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  }
+                ],
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  }
+                ]
+              },
+              "projections": {
+                "Values": [
+                  {
+                    "Literal": {
+                      "Value": "null"
+                    }
+                  },
+                  {
+                    "Literal": {
+                      "Value": "null"
+                    }
+                  },
+                  {
+                    "Literal": {
+                      "Value": "null"
+                    }
+                  },
+                  {
+                    "Literal": {
+                      "Value": "null"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Literal": {
+                      "Value": "null"
+                    }
+                  },
+                  {
+                    "Literal": {
+                      "Value": "null"
+                    }
+                  }
+                ],
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brazil Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brazil Import"
+                        }
+                      },
+                      "Property": "EXPORTER_COUNTRY_NAME"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brazil Import"
+                        }
+                      },
+                      "Property": "CLEARANCE_CUSTOMS_OFFICE_CODE_AND_NAME_EN"
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "Rows": [
+                  {
+                    "expr": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Select"
+                          }
+                        },
+                        "Property": "Select"
+                      }
+                    },
+                    "index": 0,
+                    "length": 3
+                  }
+                ]
+              }
+            }
+          },
+          "a26a373215a503846495": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "4a160afc1e7d0e1023d3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b5846c889ef58410900e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Value"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "95705c0e4327eb5aef5c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3e043fcf0d2faad1b6cd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "IMPORTER_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "barChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Armenia Import"
+                            }
+                          },
+                          "Property": "TOTAL_ASSESS_USD"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "624dae4c2343766245b8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "af7cd4a530a50671b2a6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Value"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "afdceb6a835d3d517c32",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Quantity"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "107c68619eab3affd310",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "IMPORTER_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "df423cd6841cb231e8b1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IndiaImport (2)"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY"
+                    }
+                  }
+                },
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IndiaImport (2)"
+                        }
+                      },
+                      "Property": "HS_CODE"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "IMPORTER_NAME_EN"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "22804215a3073a6002e9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "44685629e91f49505096",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Value"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e774d8dd4d3759d54a56",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Quantity"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "40cba8591dc7e7c689e3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2be72d52ae9d7e967164",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "IMPORTER_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "ribbonChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IndiaImport (2)"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY"
+                    }
+                  }
+                },
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IndiaImport (2)"
+                        }
+                      },
+                      "Property": "IMPORTER_NAME"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7aee079f0720dd71e5ed": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d11c0abc89d89870be59",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Value"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "671b4965d8388d217055",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c645976fb8cb2cfd2dd1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b1101fdfa6f6aba22d7a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "IMPORTER_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "874fae1f31968747c6cd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9edaa7645654bb67e5e8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "CLEARANCE_CUSTOMS_OFFICE_CODE_AND_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9d0bb02c43a3392636a0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "HS_CODE"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "decompositionTreeVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "IndiaImport (2)"
+                            }
+                          },
+                          "Property": "TOTAL_ASSESS_USD"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "ExplainBy": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_COUNTRY_NAME"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "IMPORTER_NAME_EN"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_NAME_EN"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "CLEARANCE_CUSTOMS_OFFICE_CODE_AND_NAME_EN"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "HS_CODE"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "ExplainBy"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "Brazil Import.ORIGIN_COUNTRY_NAME"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Brazil Import"
+                              }
+                            },
+                            "Property": "ORIGIN_COUNTRY_NAME"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Brazil Import.EXPORTER_COUNTRY_NAME"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Brazil Import"
+                              }
+                            },
+                            "Property": "EXPORTER_COUNTRY_NAME"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Brazil Import.IMPORTER_NAME_EN"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Brazil Import"
+                              }
+                            },
+                            "Property": "IMPORTER_NAME_EN"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Brazil Import.EXPORTER_NAME_EN"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Brazil Import"
+                              }
+                            },
+                            "Property": "EXPORTER_NAME_EN"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Brazil Import.CLEARANCE_CUSTOMS_OFFICE_CODE_AND_NAME_EN"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Brazil Import"
+                              }
+                            },
+                            "Property": "CLEARANCE_CUSTOMS_OFFICE_CODE_AND_NAME_EN"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Brazil Import.HS_CODE"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null,
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'CUBA'"
+                            }
+                          }
+                        ],
+                        "isToggled": true,
+                        "children": [
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "'URUGUAY'"
+                                }
+                              }
+                            ],
+                            "isToggled": true,
+                            "children": [
+                              {
+                                "identityValues": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'DUFRY STORES FRANCAS LTDA'"
+                                    }
+                                  }
+                                ],
+                                "isToggled": true,
+                                "children": [
+                                  {
+                                    "identityValues": [
+                                      {
+                                        "Literal": {
+                                          "Value": "'INTERNATIONAL OPERATIONS AND SERVICES SA IOS SA'"
+                                        }
+                                      }
+                                    ],
+                                    "isToggled": true,
+                                    "children": [
+                                      {
+                                        "identityValues": [
+                                          {
+                                            "Literal": {
+                                              "Value": "'0817800 - PORTO DE SANTOS'"
+                                            }
+                                          }
+                                        ],
+                                        "isToggled": true
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "4529af24b347789a000d": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "3c84ec8a7cec7c5d81e0": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "e3e20550c404d6c3e075": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "686095b24d0034dac54d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d7c1b4e025e8e0ad74df",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e29c3c1d744004c10653": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1fb9c6643d4ac883934e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "IMPORTER_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "IMPORTER_NAME_EN"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "99e38122bad5a701d3d8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f20b58afaaaad573b7f4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_NAME_EN"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "43d3c03182c8096bd050": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "36360227d80322250420": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6374d1c18a85b0be3434",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Data"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "d",
+                                "Entity": "Data",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "d"
+                                            }
+                                          },
+                                          "Property": "Data Fields"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'''All Measures''[Total Value]'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Data"
+                              }
+                            },
+                            "Property": "Data Fields"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'''All Measures''[Total Value]'"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "Value"
+                }
+              ]
+            }
+          },
+          "ba87d7e15c8b00d923a0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9487afd0626cb372154d",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "t",
+                        "Entity": "TOP 50 Origin Country",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "t"
+                                  }
+                                },
+                                "Property": "TOP50 Origin_Country Rank"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "1L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TOP 50 Origin Country"
+                        }
+                      },
+                      "Property": "TOP50 Origin_Country Rank"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "f895342625769d7c6114",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Value"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "806057df3c2c0a99d6a5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "barChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Value"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  }
+                ]
+              },
+              "projections": {
+                "Y": [
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Value"
+                    }
+                  }
+                ],
+                "Category": [
+                  {
+                    "Literal": {
+                      "Value": "null"
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "Y": [
+                  {
+                    "expr": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Data"
+                          }
+                        },
+                        "Property": "Data"
+                      }
+                    },
+                    "index": 0,
+                    "length": 1
+                  }
+                ]
+              }
+            }
+          },
+          "0a909cb85b31b57deb31": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a09bc7eaaa5b78e93b52",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TOP 50 Origin Country"
+                        }
+                      },
+                      "Property": "Value"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "t",
+                                "Entity": "TOP 50 Origin Country",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "t"
+                                            }
+                                          },
+                                          "Property": "Value"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "20L"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "b56d4716503515870ed7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b45db697eb65c618c578",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Records"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c494cddf142bff5ed807",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "ORIGIN_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "53938bf3665aa39f0587",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "flowmap30CFDD5B92F848C88242B1E81C8C33C7",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Count of records(2)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "2031c87c0cabcb22a165": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c22f1b296b8ca1e6b620",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Select"
+                        }
+                      },
+                      "Property": "Select"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "b9c3b24086dc79905198": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "da1f0a7e04a20627c519": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "4735b2a988cfaec187c9": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "9b27504553f95981b9cd": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "c8e65e802dd392b8cc12": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "675f8c004506f6743b91": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "9a2d464cbfc75ef66120": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "360480edf2faa04a56ac": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "2fa09c29ddd8d269f886": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "a0edccf225992d926235": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "409f1477373b852d2bf4": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "ccd7bbda03ea9fa830d5": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "5e812a22868abec0d901": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b4b0cd8926eab818b7e6": {
+            "singleVisual": {
+              "visualType": "pageNavigator",
+              "objects": {}
+            }
+          },
+          "96413c28102b9e6a7bcd": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "cdd25380201de3099b0d": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "082f30015b52109a7565": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e57303df8ca400387983": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "191b23d7a0e10e0a64aa": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "cf1498661c21a3a540f9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Records"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "6ae016a5631ee2c12026": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8449a8a8150ba2f2c04b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Value"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "d5b88bfc6c4c7332bd79": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "56ddda463c281fc6c4a8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Quantity"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "bd1b042a4140529e3230": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f2c0796cdd622fd97f4a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total HS_Code"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "fdd73cc3aa29b00edb6a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "943d6cabec406d6f58ab",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Importers"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "e8d6b1790360602bab65": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "df899d266f2bac285c83",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "All Measures"
+                        }
+                      },
+                      "Property": "Total Suppliers"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "c751cf51c30a2e2bded6": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "4a91ff9ab0d170ded2b2": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "455405c1d7208e8f9f24": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7bdd31e06d6d89586e21",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_COUNTRY_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "EXPORTER_COUNTRY_NAME"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "9a6ed7a0b54634ca1fe5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0ebbc77b6de38d5d423e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "CLEARANCE_CUSTOMS_OFFICE_CODE_AND_NAME_EN"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Armenia Import"
+                        }
+                      },
+                      "Property": "CLEARANCE_CUSTOMS_OFFICE_CODE_AND_NAME_EN"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "20318aaf6ead6980d9cb": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

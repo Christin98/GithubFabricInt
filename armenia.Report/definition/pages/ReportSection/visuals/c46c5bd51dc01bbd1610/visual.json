@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "c46c5bd51dc01bbd1610",
+  "position": {
+    "x": 746.322552952227,
+    "y": 1577.819240380494,
+    "z": 14000,
+    "height": 558.60550772528018,
+    "width": 745.30712859854941,
+    "tabOrder": 4000
+  },
+  "visualGroup": {
+    "displayName": "Top 10 Indian Port",
+    "groupMode": "ScaleMode"
+  }
+}

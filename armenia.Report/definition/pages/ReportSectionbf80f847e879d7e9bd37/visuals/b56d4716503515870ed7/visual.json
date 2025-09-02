@@ -1,0 +1,206 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "b56d4716503515870ed7",
+  "position": {
+    "x": 10.880829015544041,
+    "y": 3963.7305699481867,
+    "z": 13000,
+    "height": 609.32642487046633,
+    "width": 1478.238341968912,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "flowmap30CFDD5B92F848C88242B1E81C8C33C7",
+    "query": {
+      "queryState": {
+        "Tooltip": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "All Measures"
+                    }
+                  },
+                  "Property": "Total Records"
+                }
+              },
+              "queryRef": "All Measures.Total Records",
+              "nativeQueryRef": "Total Records"
+            }
+          ]
+        },
+        "Label": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "All Measures"
+                    }
+                  },
+                  "Property": "Total Records"
+                }
+              },
+              "queryRef": "All Measures.Total Records",
+              "nativeQueryRef": "Total Records"
+            }
+          ]
+        },
+        "Origin": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Armenia Import"
+                    }
+                  },
+                  "Property": "ORIGIN_COUNTRY"
+                }
+              },
+              "queryRef": "Armenia Import.ORIGIN_COUNTRY",
+              "nativeQueryRef": "ORIGIN_COUNTRY"
+            }
+          ]
+        },
+        "Dest": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Armenia Import"
+                    }
+                  },
+                  "Property": "EXPORT_COUNTRY"
+                }
+              },
+              "queryRef": "Armenia Import.EXPORT_COUNTRY",
+              "nativeQueryRef": "EXPORT_COUNTRY"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "All Measures"
+                  }
+                },
+                "Property": "Count of records(2)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "persist": [
+        {
+          "properties": {
+            "map": {
+              "expr": {
+                "Literal": {
+                  "Value": "'[{\"latitude\":8.047744749999993,\"longitude\":-25.41314840500001,\"altitude\":0,\"altitudeReference\":-1},3]'"
+                }
+              }
+            },
+            "geocoding": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"TUGHLAKABAD\":{\"latitude\":28.50776482,\"longitude\":77.27552795,\"type\":\"Neighborhood\",\"name\":\"Tughlakabad, India\",\"address\":\"TUGHLAKABAD\"},\"ALBANIA\":{\"latitude\":41.13994598,\"longitude\":20.06507683,\"type\":\"CountryRegion\",\"name\":\"Albania\",\"address\":\"ALBANIA\"},\"DELHI AIR CARGO\":{\"latitude\":28.64339066,\"longitude\":77.11547852,\"type\":\"AdminDivision1\",\"name\":\"Delhi\",\"address\":\"DELHI AIR CARGO\"},\"DENMARK\":{\"latitude\":55.93219376,\"longitude\":8.98490334,\"type\":\"CountryRegion\",\"name\":\"Denmark\",\"address\":\"DENMARK\"},\"BULGARIA\":{\"latitude\":42.75815964,\"longitude\":25.23507118,\"type\":\"CountryRegion\",\"name\":\"Bulgaria\",\"address\":\"BULGARIA\"},\"NHAVA SHEVA SEA\":{\"latitude\":18.96364784,\"longitude\":72.96478271,\"type\":\"TouristStructure\",\"name\":\"Nhava Sheva, India\",\"address\":\"NHAVA SHEVA SEA\"},\"BOMBAY AIR CARGO\":{\"latitude\":19.1054543,\"longitude\":72.8647243,\"type\":\"Address\",\"name\":\"Indian Air Lines Apartment, Mumbai, Maharashtra-400099, India\",\"address\":\"BOMBAY AIR CARGO\"},\"AFGHANISTAN\":{\"latitude\":33.76800537,\"longitude\":66.23851013,\"type\":\"CountryRegion\",\"name\":\"Afghanistan\",\"address\":\"AFGHANISTAN\"},\"ATTARI ROAD\":{\"latitude\":30.86161991,\"longitude\":75.88120655,\"type\":\"RoadBlock\",\"name\":\"Attari Road, Ludhiana, Punjab-141003, India\",\"address\":\"ATTARI ROAD\"},\"ALGERIA\":{\"latitude\":28.0000267,\"longitude\":2.9999826,\"type\":\"CountryRegion\",\"name\":\"Algeria\",\"address\":\"ALGERIA\"},\"ARGENTINA\":{\"latitude\":-34.99649811,\"longitude\":-64.96728516,\"type\":\"CountryRegion\",\"name\":\"Argentina\",\"address\":\"ARGENTINA\"},\"AUSTRALIA\":{\"latitude\":-25.72804832,\"longitude\":134.49017334,\"type\":\"CountryRegion\",\"name\":\"Australia\",\"address\":\"AUSTRALIA\"},\"CHENNAI AIR CARGO\":{\"latitude\":13.07209206,\"longitude\":80.20185852,\"type\":\"PopulatedPlace\",\"name\":\"Chennai, India\",\"address\":\"CHENNAI AIR CARGO\"},\"HYDERABAD\":{\"latitude\":17.36599922,\"longitude\":78.47599792,\"type\":\"PopulatedPlace\",\"name\":\"Hyderabad, India\",\"address\":\"HYDERABAD\"},\"BANGLADESH\":{\"latitude\":23.87430954,\"longitude\":90.25627899,\"type\":\"CountryRegion\",\"name\":\"Bangladesh\",\"address\":\"BANGLADESH\"},\"PETRAPOLE ROAD\":{\"latitude\":23,\"longitude\":88.83000183,\"type\":\"GovernmentStructure\",\"name\":\"Petrapole, India\",\"address\":\"PETRAPOLE ROAD\"},\"TUTICORIN SEA\":{\"latitude\":8.79298878,\"longitude\":78.14242554,\"type\":\"PopulatedPlace\",\"name\":\"Thoothukudi, India\",\"address\":\"TUTICORIN SEA\"},\"BENIN\":{\"latitude\":9.52934742,\"longitude\":2.25844073,\"type\":\"CountryRegion\",\"name\":\"Benin\",\"address\":\"BENIN\"},\"BRAZIL\":{\"latitude\":-10.33333302,\"longitude\":-53.20000076,\"type\":\"CountryRegion\",\"name\":\"Brazil\",\"address\":\"BRAZIL\"},\"MUNDRA SEA\":{\"latitude\":22.84120369,\"longitude\":69.72815704,\"type\":\"PopulatedPlace\",\"name\":\"Mundra, India\",\"address\":\"MUNDRA SEA\"},\"MUNDRA PORT & SEZ LTD (SEZ)\":{\"latitude\":22.84120369,\"longitude\":69.72815704,\"type\":\"PopulatedPlace\",\"name\":\"Mundra, India\",\"address\":\"MUNDRA PORT & SEZ LTD (SEZ)\"},\"CANADA\":{\"latitude\":62.57421112,\"longitude\":-96.60791016,\"type\":\"CountryRegion\",\"name\":\"Canada\",\"address\":\"CANADA\"},\"CHILE\":{\"latitude\":-31.76133728,\"longitude\":-71.31877136,\"type\":\"CountryRegion\",\"name\":\"Chile\",\"address\":\"CHILE\"},\"PATPARGANJ\":{\"latitude\":28.64012337,\"longitude\":77.3144989,\"type\":\"Neighborhood\",\"name\":\"Patparganj, India\",\"address\":\"PATPARGANJ\"},\"CHENNAI SEA\":{\"latitude\":13.07209206,\"longitude\":80.20185852,\"type\":\"PopulatedPlace\",\"name\":\"Chennai, India\",\"address\":\"CHENNAI SEA\"},\"CHINA\":{\"latitude\":36.55937195,\"longitude\":103.7533493,\"type\":\"CountryRegion\",\"name\":\"China\",\"address\":\"CHINA\"},\"PANCHI GUJARAN(SONEPAT ICD)\":{\"latitude\":28.99015617,\"longitude\":77.01557922,\"type\":\"PopulatedPlace\",\"name\":\"Sonipat, India\",\"address\":\"PANCHI GUJARAN(SONEPAT ICD)\"},\"PIPAVAV(VICTOR) PORT SEA\":{\"latitude\":21.01009369,\"longitude\":71.54816437,\"type\":\"Neighborhood\",\"name\":\"Pipavav, India\",\"address\":\"PIPAVAV(VICTOR) PORT SEA\"},\"CONGO, THE DEMOCRATIC REPUBLIC OF THE\":{\"latitude\":-2.98143435,\"longitude\":23.82226372,\"type\":\"CountryRegion\",\"name\":\"Democratic Republic of the Congo\",\"address\":\"CONGO, THE DEMOCRATIC REPUBLIC OF THE\"},\"COSTA RICA\":{\"latitude\":9.97899818,\"longitude\":-84.19515228,\"type\":\"CountryRegion\",\"name\":\"Costa Rica\",\"address\":\"COSTA RICA\"},\"SRI CITY SEZ (MULTI PRODUCT) (SEZ)\":{\"latitude\":13.55767345,\"longitude\":80.02948761,\"type\":\"Reserve\",\"name\":\"Sri City, India\",\"address\":\"SRI CITY SEZ (MULTI PRODUCT) (SEZ)\"},\"CROATIA\":{\"latitude\":45.14022827,\"longitude\":16.42813492,\"type\":\"CountryRegion\",\"name\":\"Croatia\",\"address\":\"CROATIA\"},\"CZECH REPUBLIC\":{\"latitude\":49.73923874,\"longitude\":15.3317976,\"type\":\"CountryRegion\",\"name\":\"Czechia\",\"address\":\"CZECH REPUBLIC\"},\"COCHIN SEA\":{\"latitude\":9.95761681,\"longitude\":76.25115204,\"type\":\"PopulatedPlace\",\"name\":\"Kochi, India\",\"address\":\"COCHIN SEA\"},\"FALTA SPECIAL ECONOMIC ZONE (SEZ)\":{\"latitude\":22.27470016,\"longitude\":88.09870148,\"type\":\"Neighborhood\",\"name\":\"Falta Special Economic Zone, India\",\"address\":\"FALTA SPECIAL ECONOMIC ZONE (SEZ)\"},\"EGYPT\":{\"latitude\":26.50224876,\"longitude\":29.8741188,\"type\":\"CountryRegion\",\"name\":\"Egypt\",\"address\":\"EGYPT\"},\"COCHIN AIR CARGO\":{\"latitude\":9.95761681,\"longitude\":76.25115204,\"type\":\"PopulatedPlace\",\"name\":\"Kochi, India\",\"address\":\"COCHIN AIR CARGO\"},\"ESTONIA\":{\"latitude\":58.68366241,\"longitude\":25.83779716,\"type\":\"CountryRegion\",\"name\":\"Estonia\",\"address\":\"ESTONIA\"},\"ETHIOPIA\":{\"latitude\":10.21166992,\"longitude\":38.65211868,\"type\":\"CountryRegion\",\"name\":\"Ethiopia\",\"address\":\"ETHIOPIA\"},\"KOLKATA SEA\":{\"latitude\":22.56557274,\"longitude\":88.37021637,\"type\":\"PopulatedPlace\",\"name\":\"Kolkata, India\",\"address\":\"KOLKATA SEA\"},\"FRANCE\":{\"latitude\":46.62480927,\"longitude\":2.45837402,\"type\":\"CountryRegion\",\"name\":\"France\",\"address\":\"FRANCE\"},\"BANGALORE AIR CARGO\":{\"latitude\":12.97674656,\"longitude\":77.57527924,\"type\":\"PopulatedPlace\",\"name\":\"Bengaluru, India\",\"address\":\"BANGALORE AIR CARGO\"},\"GERMANY\":{\"latitude\":51.09198761,\"longitude\":10.38080883,\"type\":\"CountryRegion\",\"name\":\"Germany\",\"address\":\"GERMANY\"},\"KOLKATA AIR CARGO\":{\"latitude\":22.56557274,\"longitude\":88.37021637,\"type\":\"PopulatedPlace\",\"name\":\"Kolkata, India\",\"address\":\"KOLKATA AIR CARGO\"},\"GUATEMALA\":{\"latitude\":15.69590664,\"longitude\":-90.35707092,\"type\":\"CountryRegion\",\"name\":\"Guatemala\",\"address\":\"GUATEMALA\"},\"HUNGARY\":{\"latitude\":47.1652832,\"longitude\":19.41218948,\"type\":\"CountryRegion\",\"name\":\"Hungary\",\"address\":\"HUNGARY\"},\"INDIA\":{\"latitude\":22.35250854,\"longitude\":79.36368561,\"type\":\"CountryRegion\",\"name\":\"India\",\"address\":\"INDIA\"},\"INDONESIA\":{\"latitude\":-0.199674,\"longitude\":114.00997925,\"type\":\"CountryRegion\",\"name\":\"Indonesia\",\"address\":\"INDONESIA\"},\"THAR DRY PORT - JODHPUR ICD\":{\"latitude\":26.28334045,\"longitude\":73.02185822,\"type\":\"PopulatedPlace\",\"name\":\"Jodhpur, India\",\"address\":\"THAR DRY PORT - JODHPUR ICD\"},\"BHAGAT KI KOTHI - JODHPUR ICD\":{\"latitude\":26.25082207,\"longitude\":73.01488495,\"type\":\"RailwayStation\",\"name\":\"Bhagat Ki Kothi Railway Station, India\",\"address\":\"BHAGAT KI KOTHI - JODHPUR ICD\"},\"KATTUPALLI VILLAGE,PONNERI TALUK,TIRUVALLUR SEA\":{\"latitude\":13.32016277,\"longitude\":80.19251251,\"type\":\"PopulatedPlace\",\"name\":\"Ponneri, India\",\"address\":\"KATTUPALLI VILLAGE,PONNERI TALUK,TIRUVALLUR SEA\"},\"IRAN, ISLAMIC REPUBLIC OF\":{\"latitude\":32.6475296,\"longitude\":54.56435013,\"type\":\"CountryRegion\",\"name\":\"Iran\",\"address\":\"IRAN, ISLAMIC REPUBLIC OF\"},\"ISRAEL\":{\"latitude\":30.81242561,\"longitude\":34.859478,\"type\":\"CountryRegion\",\"name\":\"Israel\",\"address\":\"ISRAEL\"},\"ITALY\":{\"latitude\":43.52555084,\"longitude\":12.16000175,\"type\":\"CountryRegion\",\"name\":\"Italy\",\"address\":\"ITALY\"},\"JAPAN\":{\"latitude\":36.65415573,\"longitude\":137.9765625,\"type\":\"CountryRegion\",\"name\":\"Japan\",\"address\":\"JAPAN\"},\"KOREA, REPUBLIC OF\":{\"latitude\":36.43822861,\"longitude\":127.83287048,\"type\":\"CountryRegion\",\"name\":\"South Korea\",\"address\":\"KOREA, REPUBLIC OF\"},\"LAO, PEOPLE`S DEMOCRATIC REPUBLIC\":{\"latitude\":18.49440193,\"longitude\":103.76933289,\"type\":\"CountryRegion\",\"name\":\"Laos\",\"address\":\"LAO, PEOPLE`S DEMOCRATIC REPUBLIC\"},\"LATVIA\":{\"latitude\":56.85401154,\"longitude\":24.9270668,\"type\":\"CountryRegion\",\"name\":\"Latvia\",\"address\":\"LATVIA\"},\"MADAGASCAR\":{\"latitude\":-18.92496109,\"longitude\":46.44164276,\"type\":\"CountryRegion\",\"name\":\"Madagascar\",\"address\":\"MADAGASCAR\"},\"MALAYSIA\":{\"latitude\":3.60245299,\"longitude\":114.70446777,\"type\":\"CountryRegion\",\"name\":\"Malaysia\",\"address\":\"MALAYSIA\"},\"HYDERABAD AIR CARGO\":{\"latitude\":17.36599922,\"longitude\":78.47599792,\"type\":\"PopulatedPlace\",\"name\":\"Hyderabad, India\",\"address\":\"HYDERABAD AIR CARGO\"},\"MEXICO\":{\"latitude\":23.93359184,\"longitude\":-102.50969696,\"type\":\"CountryRegion\",\"name\":\"Mexico\",\"address\":\"MEXICO\"},\"MOROCCO\":{\"latitude\":31.17282104,\"longitude\":-7.3362484,\"type\":\"CountryRegion\",\"name\":\"Morocco\",\"address\":\"MOROCCO\"},\"MOZAMBIQUE\":{\"latitude\":-19.30223274,\"longitude\":34.91449738,\"type\":\"CountryRegion\",\"name\":\"Mozambique\",\"address\":\"MOZAMBIQUE\"},\"THAR DRY PORT ICD/AHMEDABAD\":{\"latitude\":23.0145092,\"longitude\":72.59175873,\"type\":\"PopulatedPlace\",\"name\":\"Ahmedabad, India\",\"address\":\"THAR DRY PORT ICD/AHMEDABAD\"},\"MYANMAR\":{\"latitude\":21.17757607,\"longitude\":96.51698303,\"type\":\"CountryRegion\",\"name\":\"Myanmar\",\"address\":\"MYANMAR\"},\"VISAKHAPATNAM SPECIAL ECONOMIC ZONE (SEZ)\":{\"latitude\":17.73463249,\"longitude\":83.2729187,\"type\":\"PopulatedPlace\",\"name\":\"Vishakhapatnam, India\",\"address\":\"VISAKHAPATNAM SPECIAL ECONOMIC ZONE (SEZ)\"},\"RAXAUL\":{\"latitude\":26.98329926,\"longitude\":84.84999847,\"type\":\"PopulatedPlace\",\"name\":\"Raxaul, India\",\"address\":\"RAXAUL\"},\"PANITANKI-NAXALBARI\":{\"latitude\":26.63999939,\"longitude\":88.16999817,\"type\":\"PopulatedPlace\",\"name\":\"Panitanki, India\",\"address\":\"PANITANKI-NAXALBARI\"},\"NEPAL\":{\"latitude\":28.26092148,\"longitude\":83.93660736,\"type\":\"CountryRegion\",\"name\":\"Nepal\",\"address\":\"NEPAL\"},\"SONAULI\":{\"latitude\":27.47380638,\"longitude\":83.46913147,\"type\":\"PopulatedPlace\",\"name\":\"Sonauli, India\",\"address\":\"SONAULI\"},\"LCS NEPALGUNJ ROAD\":{\"latitude\":22.4139443,\"longitude\":88.35094316,\"type\":\"RoadBlock\",\"name\":\"Joinpur Nepalgunj Road, Kolkata, West Bengal-700103, India\",\"address\":\"LCS NEPALGUNJ ROAD\"},\"NETHERLANDS\":{\"latitude\":52.24563217,\"longitude\":5.62691784,\"type\":\"CountryRegion\",\"name\":\"Netherlands\",\"address\":\"NETHERLANDS\"},\"NEW ZEALAND\":{\"latitude\":-41.50008392,\"longitude\":172.83441162,\"type\":\"CountryRegion\",\"name\":\"New Zealand\",\"address\":\"NEW ZEALAND\"},\"INDORE-DHANNAD\":{\"latitude\":22.64191628,\"longitude\":75.71614838,\"type\":\"Neighborhood\",\"name\":\"dhannad, India\",\"address\":\"INDORE-DHANNAD\"},\"NIGER\":{\"latitude\":17.7356205,\"longitude\":9.323843,\"type\":\"CountryRegion\",\"name\":\"Niger\",\"address\":\"NIGER\"},\"NIGERIA\":{\"latitude\":9.60003567,\"longitude\":7.99997187,\"type\":\"CountryRegion\",\"name\":\"Nigeria\",\"address\":\"NIGERIA\"},\"PERU\":{\"latitude\":-6.86996984,\"longitude\":-75.04585266,\"type\":\"CountryRegion\",\"name\":\"Peru\",\"address\":\"PERU\"},\"PHILIPPINES\":{\"latitude\":15.94740677,\"longitude\":121.42166901,\"type\":\"CountryRegion\",\"name\":\"Philippines\",\"address\":\"PHILIPPINES\"},\"POLAND\":{\"latitude\":52.12467194,\"longitude\":19.40042686,\"type\":\"CountryRegion\",\"name\":\"Poland\",\"address\":\"POLAND\"},\"SOMALIA\":{\"latitude\":8.36767673,\"longitude\":49.08341599,\"type\":\"CountryRegion\",\"name\":\"Somalia\",\"address\":\"SOMALIA\"},\"SOUTH AFRICA\":{\"latitude\":-28.99632072,\"longitude\":25.08714294,\"type\":\"CountryRegion\",\"name\":\"South Africa\",\"address\":\"SOUTH AFRICA\"},\"SPAIN\":{\"latitude\":40.3901062,\"longitude\":-3.55436707,\"type\":\"CountryRegion\",\"name\":\"Spain\",\"address\":\"SPAIN\"},\"SRI LANKA\":{\"latitude\":7.55549431,\"longitude\":80.71378326,\"type\":\"CountryRegion\",\"name\":\"Sri Lanka\",\"address\":\"SRI LANKA\"},\"SUDAN\":{\"latitude\":14.58444405,\"longitude\":29.49176979,\"type\":\"CountryRegion\",\"name\":\"Sudan\",\"address\":\"SUDAN\"},\"TAIWAN, PROVINCE OF CHINA\":{\"latitude\":36.55937195,\"longitude\":103.7533493,\"type\":\"CountryRegion\",\"name\":\"China\",\"address\":\"TAIWAN, PROVINCE OF CHINA\"},\"TANZANIA, UNITED REPUBLIC OF\":{\"latitude\":-6.52471209,\"longitude\":35.78784561,\"type\":\"CountryRegion\",\"name\":\"Tanzania\",\"address\":\"TANZANIA, UNITED REPUBLIC OF\"},\"SABARMATI ICD\":{\"latitude\":22.39614487,\"longitude\":72.38581848,\"type\":\"River\",\"name\":\"Sabarmati, India\",\"address\":\"SABARMATI ICD\"},\"THAILAND\":{\"latitude\":15.13178921,\"longitude\":101.01837921,\"type\":\"CountryRegion\",\"name\":\"Thailand\",\"address\":\"THAILAND\"},\"TOGO\":{\"latitude\":8.78002644,\"longitude\":1.0199765,\"type\":\"CountryRegion\",\"name\":\"Togo\",\"address\":\"TOGO\"},\"TURKEY\":{\"latitude\":38.98909378,\"longitude\":35.43323517,\"type\":\"CountryRegion\",\"name\":\"Türkiye\",\"address\":\"TURKEY\"},\"UGANDA\":{\"latitude\":1.53335536,\"longitude\":32.21665955,\"type\":\"CountryRegion\",\"name\":\"Uganda\",\"address\":\"UGANDA\"},\"INDORE SPECIAL ECONOMIC ZONE (SEZ)\":{\"latitude\":22.71867371,\"longitude\":75.85571289,\"type\":\"PopulatedPlace\",\"name\":\"Indore, India\",\"address\":\"INDORE SPECIAL ECONOMIC ZONE (SEZ)\"},\"UNITED KINGDOM\":{\"latitude\":53.9438324,\"longitude\":-2.55056405,\"type\":\"CountryRegion\",\"name\":\"United Kingdom\",\"address\":\"UNITED KINGDOM\"},\"UNITED STATES\":{\"latitude\":39.50357056,\"longitude\":-99.01834106,\"type\":\"CountryRegion\",\"name\":\"United States\",\"address\":\"UNITED STATES\"},\"MIHAN ICD\":{\"latitude\":21.83390045,\"longitude\":108.31234741,\"type\":\"AdminDivision3\",\"name\":\"Mihan, China\",\"address\":\"MIHAN ICD\"},\"PITHAMPUR\":{\"latitude\":22.61149979,\"longitude\":75.67769623,\"type\":\"Neighborhood\",\"name\":\"Pithampur, India\",\"address\":\"PITHAMPUR\"},\"BORKHEDI ICD/NAGPUR\":{\"latitude\":21.15261841,\"longitude\":79.0881958,\"type\":\"PopulatedPlace\",\"name\":\"Nagpur, India\",\"address\":\"BORKHEDI ICD/NAGPUR\"},\"KANAKPURA - JAIPUR ICD\":{\"latitude\":26.92370987,\"longitude\":75.71782684,\"type\":\"Neighborhood\",\"name\":\"Kanakpura, India\",\"address\":\"KANAKPURA - JAIPUR ICD\"},\"VIETNAM, DEMOCRATIC REPUBLIC OF\":{\"latitude\":13.4233942,\"longitude\":108.25662231,\"type\":\"CountryRegion\",\"name\":\"Vietnam\",\"address\":\"VIETNAM, DEMOCRATIC REPUBLIC OF\"},\"KLPPL PANKI\":{\"latitude\":51.34340286,\"longitude\":37.35256195,\"type\":\"PopulatedPlace\",\"name\":\"Panki, Russia\",\"address\":\"KLPPL PANKI\"},\"VIZAC SEA\":{\"latitude\":17.73463249,\"longitude\":83.2729187,\"type\":\"PopulatedPlace\",\"name\":\"Vishakhapatnam, India\",\"address\":\"VIZAC SEA\"},\"ZAMBIA\":{\"latitude\":-14.51891232,\"longitude\":27.55898857,\"type\":\"CountryRegion\",\"name\":\"Zambia\",\"address\":\"ZAMBIA\"},\"SHB ICD/SURAT\":{\"latitude\":21.20350838,\"longitude\":72.83922577,\"type\":\"PopulatedPlace\",\"name\":\"Surat, India\",\"address\":\"SHB ICD/SURAT\"},\"ANGOLA\":{\"latitude\":-11.87757683,\"longitude\":17.56912422,\"type\":\"CountryRegion\",\"name\":\"Angola\",\"address\":\"ANGOLA\"},\"AUSTRIA\":{\"latitude\":47.58707047,\"longitude\":14.14098835,\"type\":\"CountryRegion\",\"name\":\"Austria\",\"address\":\"AUSTRIA\"},\"PCCCC BANDRA-KURLA COMPLEX\":{\"latitude\":19.05547142,\"longitude\":72.8523941,\"type\":\"BusinessStructure\",\"name\":\"Bandra Kurla Complex, India\",\"address\":\"PCCCC BANDRA-KURLA COMPLEX\"},\"CHANGRABANDHA\":{\"latitude\":26.42479324,\"longitude\":88.93271637,\"type\":\"PopulatedPlace\",\"name\":\"Changrabandha, Bangladesh\",\"address\":\"CHANGRABANDHA\"},\"BELGIUM\":{\"latitude\":50.64095688,\"longitude\":4.66128588,\"type\":\"CountryRegion\",\"name\":\"Belgium\",\"address\":\"BELGIUM\"},\"BANGALORE ICD\":{\"latitude\":12.97674656,\"longitude\":77.57527924,\"type\":\"PopulatedPlace\",\"name\":\"Bengaluru, India\",\"address\":\"BANGALORE ICD\"},\"BHUTAN\":{\"latitude\":27.4143486,\"longitude\":90.43104553,\"type\":\"CountryRegion\",\"name\":\"Bhutan\",\"address\":\"BHUTAN\"},\"BIRPARA\":{\"latitude\":26.49533463,\"longitude\":89.49803162,\"type\":\"Neighborhood\",\"name\":\"Birpara, India\",\"address\":\"BIRPARA\"},\"BOSNIA AND HERZEGOVINA\":{\"latitude\":44.16830444,\"longitude\":17.78519249,\"type\":\"CountryRegion\",\"name\":\"Bosnia and Herzegovina\",\"address\":\"BOSNIA AND HERZEGOVINA\"},\"BOTSWANA\":{\"latitude\":-23.16817856,\"longitude\":24.59287453,\"type\":\"CountryRegion\",\"name\":\"Botswana\",\"address\":\"BOTSWANA\"},\"FARIDABAD\":{\"latitude\":28.41488266,\"longitude\":77.30969238,\"type\":\"PopulatedPlace\",\"name\":\"Faridabad, India\",\"address\":\"FARIDABAD\"},\"AHMEDABAD AIR CARGO\":{\"latitude\":23.0145092,\"longitude\":72.59175873,\"type\":\"PopulatedPlace\",\"name\":\"Ahmedabad, India\",\"address\":\"AHMEDABAD AIR CARGO\"},\"BARODA\":{\"latitude\":22.31119537,\"longitude\":73.18198395,\"type\":\"PopulatedPlace\",\"name\":\"Vadodara, India\",\"address\":\"BARODA\"},\"TIRUVALLUR-ILP ICD\":{\"latitude\":13.14291954,\"longitude\":79.90753174,\"type\":\"PopulatedPlace\",\"name\":\"Tiruvallur, India\",\"address\":\"TIRUVALLUR-ILP ICD\"},\"KANDLA SEA\":{\"latitude\":23.02910614,\"longitude\":70.22040558,\"type\":\"PointOfInterest\",\"name\":\"Kandla Port, India\",\"address\":\"KANDLA SEA\"},\"FINLAND\":{\"latitude\":63.24677658,\"longitude\":25.9209156,\"type\":\"CountryRegion\",\"name\":\"Finland\",\"address\":\"FINLAND\"},\"PUNE-TALEGOAN ICD\":{\"latitude\":18.70548248,\"longitude\":73.70433807,\"type\":\"Neighborhood\",\"name\":\"Talegaon Dabhade R, India\",\"address\":\"PUNE-TALEGOAN ICD\"},\"COIMBATORE AIR CARGO\":{\"latitude\":11.01600933,\"longitude\":76.9703064,\"type\":\"PopulatedPlace\",\"name\":\"Coimbatore, India\",\"address\":\"COIMBATORE AIR CARGO\"},\"HONG KONG\":{\"latitude\":22.42118263,\"longitude\":114.16609955,\"type\":\"CountryRegion\",\"name\":\"Hong Kong SAR\",\"address\":\"HONG KONG\"},\"JAIPUR AIR CARGO\":{\"latitude\":26.92103958,\"longitude\":75.7943573,\"type\":\"PopulatedPlace\",\"name\":\"Jaipur, India\",\"address\":\"JAIPUR AIR CARGO\"},\"MAGDALLA SEA\":{\"latitude\":21.13103867,\"longitude\":72.72322845,\"type\":\"Neighborhood\",\"name\":\"Magdalla, India\",\"address\":\"MAGDALLA SEA\"},\"REWARI\":{\"latitude\":28.20167542,\"longitude\":76.61154938,\"type\":\"PopulatedPlace\",\"name\":\"Rewari, India\",\"address\":\"REWARI\"},\"DADRI-ACPL CFS\":{\"latitude\":28.55249023,\"longitude\":77.55548096,\"type\":\"PopulatedPlace\",\"name\":\"Dadri, India\",\"address\":\"DADRI-ACPL CFS\"},\"GARHI HARSARU - GURGAON ICD\":{\"latitude\":28.44179916,\"longitude\":76.93250275,\"type\":\"Neighborhood\",\"name\":\"Garhi Harsaru, India\",\"address\":\"GARHI HARSARU - GURGAON ICD\"},\"HOSUR ICD\":{\"latitude\":12.7280283,\"longitude\":77.82705688,\"type\":\"PopulatedPlace\",\"name\":\"Hosur, India\",\"address\":\"HOSUR ICD\"},\"PATLI ICD\":{\"latitude\":29.9749279,\"longitude\":78.66801453,\"type\":\"Neighborhood\",\"name\":\"Patli, India\",\"address\":\"PATLI ICD\"},\"DADRI-CGML\":{\"latitude\":28.55249023,\"longitude\":77.55548096,\"type\":\"PopulatedPlace\",\"name\":\"Dadri, India\",\"address\":\"DADRI-CGML\"},\"CHAWAPAYAL ICD/SAMRALA\":{\"latitude\":30.83699989,\"longitude\":76.18740082,\"type\":\"PopulatedPlace\",\"name\":\"Samrala, India\",\"address\":\"CHAWAPAYAL ICD/SAMRALA\"},\"LUXEMBOURG\":{\"latitude\":49.77682495,\"longitude\":6.09239101,\"type\":\"CountryRegion\",\"name\":\"Luxembourg\",\"address\":\"LUXEMBOURG\"},\"JOGBANI\":{\"latitude\":26.40741158,\"longitude\":87.25327301,\"type\":\"Neighborhood\",\"name\":\"Jogbani, India\",\"address\":\"JOGBANI\"},\"BOMBAY SEA\":{\"latitude\":18.96904755,\"longitude\":72.82118225,\"type\":\"PopulatedPlace\",\"name\":\"Mumbai, India\",\"address\":\"BOMBAY SEA\"},\"NORWAY\":{\"latitude\":59.91333008,\"longitude\":10.7389698,\"type\":\"CountryRegion\",\"name\":\"Norway\",\"address\":\"NORWAY\"},\"PORTUGAL\":{\"latitude\":39.68219757,\"longitude\":-7.96828794,\"type\":\"CountryRegion\",\"name\":\"Portugal\",\"address\":\"PORTUGAL\"},\"ROMANIA\":{\"latitude\":45.83976746,\"longitude\":24.98456573,\"type\":\"CountryRegion\",\"name\":\"Romania\",\"address\":\"ROMANIA\"},\"RUSSIAN FEDERATION\":{\"latitude\":61.66702652,\"longitude\":99.09856415,\"type\":\"CountryRegion\",\"name\":\"Russia\",\"address\":\"RUSSIAN FEDERATION\"},\"SINGAPORE\":{\"latitude\":1.35652304,\"longitude\":103.80859375,\"type\":\"CountryRegion\",\"name\":\"Singapore\",\"address\":\"SINGAPORE\"},\"SLOVAKIA\":{\"latitude\":48.70747757,\"longitude\":19.48480606,\"type\":\"CountryRegion\",\"name\":\"Slovakia\",\"address\":\"SLOVAKIA\"},\"SWEDEN\":{\"latitude\":59.67497253,\"longitude\":14.52085876,\"type\":\"CountryRegion\",\"name\":\"Sweden\",\"address\":\"SWEDEN\"},\"SWITZERLAND\":{\"latitude\":46.80123901,\"longitude\":8.23096561,\"type\":\"CountryRegion\",\"name\":\"Switzerland\",\"address\":\"SWITZERLAND\"},\"KRISHNAPATNAM SEA\":{\"latitude\":14.28857899,\"longitude\":80.12340546,\"type\":\"Neighborhood\",\"name\":\"Krishnapatnam, India\",\"address\":\"KRISHNAPATNAM SEA\"},\"UNITED ARAB EMIRATES\":{\"latitude\":24.00024796,\"longitude\":53.9994812,\"type\":\"CountryRegion\",\"name\":\"United Arab Emirates\",\"address\":\"UNITED ARAB EMIRATES\"},\"ENNORE SEA\":{\"latitude\":13.21846199,\"longitude\":80.32404327,\"type\":\"Neighborhood\",\"name\":\"Ennore, India\",\"address\":\"ENNORE SEA\"},\"VIETNAM, DEMOCRATIC REP. OF\":{\"latitude\":13.4233942,\"longitude\":108.25662231,\"type\":\"CountryRegion\",\"name\":\"Vietnam\",\"address\":\"VIETNAM, DEMOCRATIC REP. OF\"},\"NASIK\":{\"latitude\":20.05602264,\"longitude\":73.64289093,\"type\":\"PopulatedPlace\",\"name\":\"Nasik, India\",\"address\":\"NASIK\"},\"BAHRAIN\":{\"latitude\":26.15512466,\"longitude\":50.53446198,\"type\":\"CountryRegion\",\"name\":\"Bahrain\",\"address\":\"BAHRAIN\"},\"ARSHIYA INTERNATIONAL LTD (SEZ)\":{\"latitude\":-4.67461872,\"longitude\":55.52206039,\"type\":\"Airport\",\"name\":\"Seychelles International Airport, Seychelles\",\"address\":\"ARSHIYA INTERNATIONAL LTD (SEZ)\"},\"J. MATADEE CHENNAI FREE TRADE ZONE (SEZ)\":{\"latitude\":13.07209206,\"longitude\":80.20185852,\"type\":\"PopulatedPlace\",\"name\":\"Chennai, India\",\"address\":\"J. MATADEE CHENNAI FREE TRADE ZONE (SEZ)\"}}'"
+                }
+              }
+            },
+            "banner": {
+              "expr": {
+                "Literal": {
+                  "Value": "'[]'"
+                }
+              }
+            },
+            "manual": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{}'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "bubble": [
+        {
+          "properties": {
+            "label": {
+              "expr": {
+                "Literal": {
+                  "Value": "'manual'"
+                }
+              }
+            },
+            "for": {
+              "expr": {
+                "Literal": {
+                  "Value": "'origin'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "advance": [
+        {
+          "properties": {
+            "cache": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

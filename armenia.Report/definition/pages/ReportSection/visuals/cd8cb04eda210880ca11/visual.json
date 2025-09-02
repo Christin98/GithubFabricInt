@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "cd8cb04eda210880ca11",
+  "position": {
+    "x": 13.6938202247191,
+    "y": 2155.4338439255239,
+    "z": 15000,
+    "height": 567.883374532063,
+    "width": 1478.1112497053507,
+    "tabOrder": 21000
+  },
+  "visualGroup": {
+    "displayName": "Top 10 HS Code",
+    "groupMode": "ScaleMode"
+  }
+}

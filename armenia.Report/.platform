@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "armenia"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e98caa7e-b9b9-8dd9-452e-00e4c34312fd"
+  }
+}

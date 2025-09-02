@@ -1,0 +1,224 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "ed8ba8101629852893ba",
+  "position": {
+    "x": 252.03252032520325,
+    "y": 1841.4634146341464,
+    "z": 11000,
+    "height": 741.19241192411926,
+    "width": 1237.1273712737127,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "testTooltip4696B540F3494FE5BA002362825DDE7D",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Armenia Import"
+                    }
+                  },
+                  "Property": "SUPPLIER_NAME_EN"
+                }
+              },
+              "queryRef": "Armenia Import.SUPPLIER_NAME_EN",
+              "nativeQueryRef": "SUPPLIER_NAME_EN"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Armenia Import"
+                    }
+                  },
+                  "Property": "IMPORTER_NAME_EN"
+                }
+              },
+              "queryRef": "Brazil Import.IMPORTER_NAME_EN",
+              "nativeQueryRef": "IMPORTER_NAME_EN"
+            }
+          ]
+        },
+        "measure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "All Measures"
+                    }
+                  },
+                  "Property": "Total Value"
+                }
+              },
+              "queryRef": "All Measures.Total Value",
+              "nativeQueryRef": "Total Value"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "IndiaImport (2)"
+                      }
+                    },
+                    "Property": "TOTAL_ASSESS_USD"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "treeOptions": [
+        {
+          "properties": {
+            "linksSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "leftMarginFirstNode": {
+              "expr": {
+                "Literal": {
+                  "Value": "60D"
+                }
+              }
+            },
+            "weightLinks": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "arcRadius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "progressPie": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "nodesTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "treeLabels": [
+        {
+          "properties": {
+            "nodeTextSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "categoryLabelXpos": {
+              "expr": {
+                "Literal": {
+                  "Value": "-30D"
+                }
+              }
+            },
+            "autoScaleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "magicLabels": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backgroundLabels": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "categoryLabelYpos": {
+              "expr": {
+                "Literal": {
+                  "Value": "-30D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "treeColors": [
+        {
+          "properties": {
+            "nodeBgColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sum of UNIT VALUE USD by SUPPLIER NAME and IMPORTER NAME'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

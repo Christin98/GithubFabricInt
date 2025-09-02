@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "10264f02e42389e7c96a",
+  "position": {
+    "x": 6.89081441129955,
+    "y": 1000.6599770709308,
+    "z": 27000,
+    "height": 679.19195731775824,
+    "width": 1483.7100070623846,
+    "tabOrder": 29000
+  },
+  "visualGroup": {
+    "displayName": "Top 50 IMP",
+    "groupMode": "ScaleMode"
+  }
+}

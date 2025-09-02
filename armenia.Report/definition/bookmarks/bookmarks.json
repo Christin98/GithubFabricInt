@@ -1,0 +1,110 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "Bookmark191f18505a21df08db3a",
+      "displayName": "Top Indian Port",
+      "children": [
+        "Bookmarka81d6487dba08e8461b6",
+        "Bookmarkeb602897e7e07b64f224",
+        "Bookmark3bf8962df6228b2389ff",
+        "Bookmarkd40602387b968e5908df"
+      ]
+    },
+    {
+      "name": "Bookmark713b7eb238dfe61ac50d",
+      "displayName": "Top HS Code",
+      "children": [
+        "Bookmark044d88c37bac68d87292",
+        "Bookmark13ee3bc7e4c787437714",
+        "Bookmark83f45163f27ce2810a88",
+        "Bookmark0e2f2b1be4849f339515"
+      ]
+    },
+    {
+      "name": "Bookmark763b6363f646d6ab7dd3",
+      "displayName": "Top Foreign Port",
+      "children": [
+        "Bookmarkc1c7990d13bdcfe6427e",
+        "Bookmark7291a3192e34b3d4293f",
+        "Bookmark75eb37782ab34c164a13",
+        "Bookmarkc5cb95fe8dd645159102"
+      ]
+    },
+    {
+      "name": "Bookmark2c38e28b086faaff547d"
+    },
+    {
+      "name": "Bookmark800c88a4dafb8a81af8c"
+    },
+    {
+      "name": "Bookmarkfb21535ad71952dd1872"
+    },
+    {
+      "name": "Bookmarkec290af440d5639f48d6"
+    },
+    {
+      "name": "Bookmark6ead027f8bb904739197"
+    },
+    {
+      "name": "Bookmark62db17a7674ee9a5a63b"
+    },
+    {
+      "name": "Bookmarkb8c0324c85d610c71c09"
+    },
+    {
+      "name": "Bookmarkf9b884a633cd1795bc7f"
+    },
+    {
+      "name": "Bookmark1a8e69f26bb588f4f3cb"
+    },
+    {
+      "name": "Bookmarkbc707e3c57b027dbfc27"
+    },
+    {
+      "name": "Bookmark1799042ecd815960bb69"
+    },
+    {
+      "name": "Bookmark7da4bcfe1972555a7419"
+    },
+    {
+      "name": "Bookmark7d0f19e800199ba03d6c"
+    },
+    {
+      "name": "Bookmark66970b11286a6287dae9"
+    },
+    {
+      "name": "Bookmark5ed59c634e7b47738a72"
+    },
+    {
+      "name": "Bookmark9a182c4405ae437b51e9"
+    },
+    {
+      "name": "Bookmarkd53e01581a66a8dd5108"
+    },
+    {
+      "name": "37117597ca25d0097108"
+    },
+    {
+      "name": "80ca4479c0b28ea24010"
+    },
+    {
+      "name": "d8ab425ce5a1b10dd0da"
+    },
+    {
+      "name": "2d018940e6234421b0a5"
+    },
+    {
+      "name": "968e0d4c5d050970772e"
+    },
+    {
+      "name": "e6409effb5629013b82d"
+    },
+    {
+      "name": "d4cdba6bb6651e65d4da"
+    },
+    {
+      "name": "af8541037bb18ec07009"
+    }
+  ]
+}

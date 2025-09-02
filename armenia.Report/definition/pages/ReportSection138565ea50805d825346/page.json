@@ -1,0 +1,10 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection138565ea50805d825346",
+  "displayName": "GA Tooltio_MAP2",
+  "displayOption": "FitToPage",
+  "height": 149,
+  "width": 314,
+  "visibility": "HiddenInViewMode",
+  "type": "Tooltip"
+}
