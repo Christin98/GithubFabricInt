@@ -1,0 +1,109 @@
+table 'IM Order Count decomposition tree- Today'
+	lineageTag: 9852555e-7044-482d-aa91-3611e7a8bb46
+
+	column city
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: d57c41ca-06c6-41e7-ab94-04adbd0ffde2
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: ea3cd58e-fab9-4125-9eb0-6134b5190854
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 927d6fcc-699d-4ca6-8ece-e350a6f4cb1c
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 6ade5d1f-6c92-4f35-b5a0-224c0b793008
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_type
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 22912f12-2649-4aaa-a90c-8243f700c34c
+		summarizeBy: none
+		sourceColumn: delivery_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_slot
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: dcadcabe-d20e-4185-bbeb-8e678f72df1d
+		summarizeBy: none
+		sourceColumn: delivery_slot
+
+		annotation SummarizationSetBy = Automatic
+
+	column count_
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 4f613e88-de0b-49ba-befa-26431f47537f
+		summarizeBy: sum
+		sourceColumn: count_
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM Order Count decomposition tree- Today' = m
+		mode: directQuery
+		queryGroup: IM\IM-Today\IM-Sales\IM-Orders
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				
+				    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+				    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+				    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // // Format the query with dynamic start and end times for yesterday in IST
+				     Query = TableName & " 
+				    |where created_at_ist >= datetime('"& StartOfTodayFormatted &"') 
+				    |where created_at_ist <= datetime('"& CurrentDateTimeFormatted &"')
+				    | where updated_at_ist <= datetime('"& CurrentDateTimeFormatted &"')   
+				    |where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				     and (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level)) 
+				    |summarize count() by city, region, zone, store_id, delivery_type, delivery_slot",
+				    
+				    // // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

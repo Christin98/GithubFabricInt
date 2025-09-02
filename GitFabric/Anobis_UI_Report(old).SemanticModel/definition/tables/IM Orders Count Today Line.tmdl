@@ -1,0 +1,96 @@
+table 'IM Orders Count Today Line'
+	lineageTag: 6d5ebf1c-f595-4045-997f-da0ddcfd9185
+
+	column COUNT_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 83f63dca-ee42-41b5-9c51-5e096e57f1a9
+		summarizeBy: sum
+		sourceColumn: COUNT_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at_ist
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f609374f-7c90-4a4d-a41f-7de9847d0a90
+		summarizeBy: none
+		sourceColumn: created_at_ist
+
+		annotation SummarizationSetBy = Automatic
+
+	column Time_Period
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 9b981c9a-d786-48d1-a627-7e72056236c5
+		summarizeBy: none
+		sourceColumn: Time_Period
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM Orders Count Today Line' = m
+		mode: directQuery
+		queryGroup: IM\IM-Today\IM-Sales\IM-Orders
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				
+				    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+				    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+				    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Get Last 7 days's time
+				    LastWeekDateTime = TodaysDateTime - #duration(7, 0, 0, 0),
+				    LastWeeksTime = Time.ToText(DateTime.Time(LastWeekDateTime), "HH:mm:ss"),
+				    StartOfLastWeek = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekDateTime)) & " 00:00:00"),
+				    StartOfLastWeekFormatted = DateTime.ToText(StartOfLastWeek, "yyyy-MM-dd HH:mm:ss"),
+				    LastWeekCurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekDateTime)) & " " & LastWeeksTime),
+				    LastWeekCurrentDateTimeFormatted = DateTime.ToText(LastWeekCurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // // Format the query with dynamic start and end times for yesterday in IST
+				   
+				    Query = "let today = " & TableName & " 
+				    | where created_at_ist >= datetime('"& StartOfTodayFormatted &"') 
+				    | where created_at_ist <= datetime('"& CurrentDateTimeFormatted &"')
+				    | where updated_at_ist <= datetime('"& CurrentDateTimeFormatted &"')  
+				    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') and (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level)) 
+				    | summarize COUNT_id = count() by bin(created_at_ist, 1h)
+				    | extend Time_Period='Today'
+				    | project COUNT_id, created_at_ist, Time_Period;
+				    let last_week = " & TableName & " 
+				    | where created_at_ist >= datetime('"& StartOfLastWeekFormatted &"') 
+				    | where created_at_ist <= datetime('"& LastWeekCurrentDateTimeFormatted &"') 
+				    | where updated_at_ist <= datetime('"& LastWeekCurrentDateTimeFormatted &"') 
+				      | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') and (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level)) 
+				    | extend created_at_ist = datetime_add('hour', 168, created_at_ist)
+				    | summarize COUNT_id = count() by bin(created_at_ist, 1h)
+				    | extend Time_Period='SDLW'
+				    | project COUNT_id, created_at_ist, Time_Period;
+				    today
+				    | union last_week",
+				
+				    // // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"created_at_ist", type datetime}})
+				in
+				#"Changed Type"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

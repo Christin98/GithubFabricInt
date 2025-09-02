@@ -1,0 +1,103 @@
+table 'IM AOV Yesterday Line'
+	lineageTag: 86f8b1df-873a-4c39-a2de-f93a3a65881d
+
+	column COUNT_id
+		dataType: double
+		sourceProviderType: double
+		lineageTag: d986c8c7-fdd5-4d2a-b789-52b8986d9cf8
+		summarizeBy: sum
+		sourceColumn: COUNT_id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column created_at_ist
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 27bb9b0a-b43d-4ea9-b5de-9b0120fc69e3
+		summarizeBy: none
+		sourceColumn: created_at_ist
+
+		variation Variation
+			isDefault
+			relationship: 6ebea00f-eebd-4bfd-8d40-748878b3d8d5
+			defaultHierarchy: LocalDateTable_36c47d25-738f-4f1f-a41b-10dd771ee1ee.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Time_period
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 6834c878-30ff-48f4-a577-6fb4fdaa9f91
+		summarizeBy: none
+		sourceColumn: Time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM AOV Yesterday Line' = m
+		mode: import
+		queryGroup: IM\IM-Yesterday\IM-Sales\IM_AOV
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get yesterday's date (in IST)
+				    YesterdayDateTime = TodaysDateTime - #duration(1, 0, 0, 0),
+				    // Set Start of Yesterday to 12:00 AM IST
+				    StartOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(YesterdayDateTime)) & " 00:00:00"),
+				    // Set End of Today to 00:00 AM IST
+				    EndOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfYesterdayFormatted = DateTime.ToText(StartOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				    EndOfYesterdayFormatted = DateTime.ToText(EndOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Get Last 7 days's time
+				    LastWeekDateTime = YesterdayDateTime - #duration(7, 0, 0, 0),
+				    StartOfLastWeek = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekDateTime)) & " 00:00:00"),
+				    StartOfLastWeekFormatted = DateTime.ToText(StartOfLastWeek, "yyyy-MM-dd HH:mm:ss"),
+				    NextDayLastWeekDateTime = YesterdayDateTime - #duration(6, 0, 0, 0),
+				    LastWeekCurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(NextDayLastWeekDateTime)) & " 00:00:00"),
+				    LastWeekCurrentDateTimeFormatted = DateTime.ToText(LastWeekCurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // // Format the query with dynamic start and end times for yesterday in IST
+				  
+				Query = "let today = " & TableName & " 
+				| where created_at_ist >= datetime('"& StartOfYesterdayFormatted &"') 
+				| where created_at_ist < datetime('"& EndOfYesterdayFormatted &"') 
+				| extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				| where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				| summarize COUNT_id = round((sum(gmv)/sum(counter)), 2) by bin(created_at_ist, 1h)
+				| extend Time_period='Yesterday'
+				| project COUNT_id, created_at_ist, Time_period;
+				let last_week = " & TableName & " 
+				| where created_at_ist >= datetime('"& StartOfLastWeekFormatted & "')
+				| where created_at_ist < datetime('"& LastWeekCurrentDateTimeFormatted &"') 
+				| extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				| where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				| extend created_at_ist = datetime_add('hour', 168, created_at_ist)
+				| summarize COUNT_id = round(sum(gmv)/sum(counter), 2) by bin(created_at_ist, 1h)
+				| extend Time_period='SDLW'
+				| project COUNT_id, created_at_ist, Time_period;
+				today
+				| union last_week",
+				
+				    // // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"created_at_ist", type datetime}})
+				in
+				    #"Changed Type"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,96 @@
+table 'Food Transacting Users Line (Last 4 Weeks)'
+	lineageTag: a1be8b97-35d0-4ff0-9fcb-4be713fa4a08
+
+	column ftu
+		dataType: int64
+		formatString: 0
+		lineageTag: bf14c5ed-4988-484b-854c-be124e24c5d7
+		summarizeBy: sum
+		sourceColumn: ftu
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_on_ist
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ccc05c27-d002-4937-b14e-f02491925426
+		summarizeBy: none
+		sourceColumn: created_on_ist
+
+		variation Variation
+			isDefault
+			relationship: bf379a00-3966-4c25-bfb5-b0cb48071cd9
+			defaultHierarchy: LocalDateTable_7d2b6cb7-2c51-4d39-a891-5ba470c89233.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column period
+		dataType: string
+		lineageTag: de5de2a2-61cf-4ab4-84df-1d2ce2e6fcc6
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Food Transacting Users Line (Last 4 Weeks)' = m
+		mode: import
+		queryGroup: 'Food\Food- Last 4 weeks\Food-Consumer\Food-FTU'
+		source = ```
+				let
+				    // Get current date and time in UTC
+				TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				// Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				// Get today's date in IST (removes the time part)
+				
+				TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				TodayDate = DateTime.Date(TodaysDateTime),
+				
+				// Get the date 28 days ago in IST
+				Last28Days = TodayDate - #duration(28, 0, 0, 0),
+				
+				// Last 28 days current week to 12:00 AM IST
+				StartOfLast28Days = DateTime.FromText(Date.ToText(Last28Days) & " 00:00:00"),
+				StartOfLast28DaysFormatted = DateTime.ToText(StartOfLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				CurrentDate = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				EndofCurrentDateFormatted = DateTime.ToText(CurrentDate, "yyyy-MM-dd HH:mm:ss"),
+				
+				// Last 28 days previous week to 12:00 AM IST
+				Last4WeekStartDateTime = StartOfLast28Days - #duration(28, 0, 0, 0),
+				StartOfLast4Week = DateTime.FromText(Date.ToText(DateTime.Date(Last4WeekStartDateTime)) & " 00:00:00"),
+				StartOfLast4WeekFormatted = DateTime.ToText(StartOfLast4Week, "yyyy-MM-dd HH:mm:ss"),
+				EndofLast4WeekFormatted = StartOfLast28DaysFormatted,
+				
+				    TableName = FoodTableName,
+				
+				    Query = "let currentperiod = " & TableName & " 
+				| where created_on_ist >= datetime('"& StartOfLast28DaysFormatted &"') 
+				| where created_on_ist < datetime('"& EndofCurrentDateFormatted &"') 
+				| where order_status == 'completed'  and order_type != 'SUBSCRIPTION'
+				| summarize ftu = count_distinct(user_id) by bin(created_on_ist, 1d)  
+				| extend period='Daily Trend'
+				| project ftu, created_on_ist, period;
+				let previousperiod = " & TableName & " 
+				| where created_on_ist >= datetime('"& StartOfLast4WeekFormatted &"') 
+				| where created_on_ist < datetime('"& EndofLast4WeekFormatted &"') 
+				| where order_status == 'completed'  and order_type != 'SUBSCRIPTION'
+				| extend created_on_ist = datetime_add('hour', 672, created_on_ist)
+				| summarize ftu = count_distinct(user_id) by bin(created_on_ist, 1d)  
+				| extend period='4 Weeks Ago'
+				| project ftu, created_on_ist, period;
+				currentperiod
+				| union previousperiod",
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"created_on_ist", type datetime}})
+				in
+				    #"Changed Type"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+
