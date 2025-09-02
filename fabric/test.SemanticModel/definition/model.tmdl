@@ -12,6 +12,8 @@ annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a26
 
 annotation PBI_QueryOrder = ["Sales Data"]
 
+annotation PBI_ProTooling = ["DevMode"]
+
 ref table 'Sales Data'
 
 ref cultureInfo en-US
