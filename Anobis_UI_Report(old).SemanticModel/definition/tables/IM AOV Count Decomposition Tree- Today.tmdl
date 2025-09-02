@@ -1,0 +1,119 @@
+table 'IM AOV Count Decomposition Tree- Today'
+	lineageTag: 6de366f7-1f43-4be0-a426-ccfb77ffa51a
+
+	column city
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 7f499e0e-4d12-4761-9291-f0a33d9529e3
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 4a2dfb83-a707-46c9-9b9d-4e994c459955
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 1fe70a5c-ae56-4dcd-a9fa-ebe48a3541ff
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_type
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 2a616d9d-e12c-4b95-93d2-042be7e75005
+		summarizeBy: none
+		sourceColumn: delivery_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_slot
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 1034b0f3-b6a7-4c10-9668-e10373f62646
+		summarizeBy: none
+		sourceColumn: delivery_slot
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupGmv
+		dataType: double
+		sourceProviderType: double
+		lineageTag: bdb5e77a-61bd-443a-9d12-8366d7fdc2a4
+		summarizeBy: sum
+		sourceColumn: GroupGmv
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GroupCounter
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 3c9b8f8f-fbff-4a30-811d-e9a75744e02d
+		summarizeBy: sum
+		sourceColumn: GroupCounter
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 327f2560-7246-44fe-a8d6-594cd60e640c
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM AOV Count Decomposition Tree- Today' = m
+		mode: directQuery
+		queryGroup: IM\IM-Today\IM-Sales\IM_AOV
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				
+				    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+				    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+				    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // // Format the query with dynamic start and end times for yesterday in IST
+				    Query = TableName & " 
+				    | where created_at_ist >= datetime('" & StartOfTodayFormatted & "')
+				    | where  created_at_ist <= datetime('" & CurrentDateTimeFormatted & "')
+				    | where updated_at_ist <= datetime('"& CurrentDateTimeFormatted &"')
+				    | extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				    | summarize GroupGmv = sum(gmv), GroupCounter = sum(counter) by city, region, zone, store_id, delivery_type, delivery_slot",
+				    
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

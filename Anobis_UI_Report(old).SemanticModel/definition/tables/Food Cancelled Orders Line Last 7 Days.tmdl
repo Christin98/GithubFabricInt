@@ -1,0 +1,112 @@
+table 'Food Cancelled Orders Line Last 7 Days'
+	lineageTag: bac4b558-b831-4179-9dcd-98455a3bc87c
+
+	column COUNT_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0aba204b-5952-4871-b923-0d18e1d9588d
+		summarizeBy: sum
+		sourceColumn: COUNT_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_on_ist
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 7ea732a7-9a3f-409f-9abd-2fcfe35c4100
+		summarizeBy: none
+		sourceColumn: created_on_ist
+
+		variation Variation
+			isDefault
+			relationship: c51cf80f-a34e-4738-a913-bc76452cd496
+			defaultHierarchy: LocalDateTable_3095689d-8159-4301-a39c-2edbb12e4c08.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_period
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 0cba5e29-bb8b-47d0-97a0-12769a257aa0
+		summarizeBy: none
+		sourceColumn: time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 50a6c225-739f-4b15-9f29-f0a5232f3560
+		summarizeBy: none
+		sourceColumn: Day Name
+		sortByColumn: created_on_ist
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Food Cancelled Orders Line Last 7 Days' = m
+		mode: import
+		queryGroup: 'Food\Food- Last 7 Days\Food-Cancelation\Food-Cancelled Orders'
+		source = ```
+				let
+				   // Get current date and time in UTC
+				TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				// Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				// Get today's date in IST (removes the time part)
+				
+				TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				TodayDate = DateTime.Date(TodaysDateTime),
+				
+				// Get the date 7 days ago in IST
+				Last7Days = TodayDate - #duration(7, 0, 0, 0),
+				
+				// Last 7 days current week to 12:00 AM IST
+				StartOfLast7Days = DateTime.FromText(Date.ToText(Last7Days) & " 00:00:00"),
+				StartOfLast7DaysFormatted = DateTime.ToText(StartOfLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				CurrentDate = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				EndofCurrentDateFormatted = DateTime.ToText(CurrentDate, "yyyy-MM-dd HH:mm:ss"),
+				
+				// Last 7 days previous week to 12:00 AM IST
+				LastWeekStartDateTime = StartOfLast7Days - #duration(7, 0, 0, 0),
+				StartOfLastWeek = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekStartDateTime)) & " 00:00:00"),
+				StartOfLastWeekFormatted = DateTime.ToText(StartOfLastWeek, "yyyy-MM-dd HH:mm:ss"),
+				EndofLastWeekFormatted = StartOfLast7DaysFormatted,
+				
+				    TableName = FoodTableName,
+				
+				    Query = "let currentweek = " & TableName & " 
+				| where created_on_ist >= datetime('"& StartOfLast7DaysFormatted &"') 
+				| where created_on_ist < datetime('"& EndofCurrentDateFormatted &"') 
+				| where order_status == 'cancelled' 
+				| summarize COUNT_id = count() by bin(created_on_ist, 1d)
+				| extend time_period='Daily Trend'
+				| project COUNT_id, created_on_ist, time_period;
+				let last_week = " & TableName & "
+				| where created_on_ist >= datetime('"& StartOfLastWeekFormatted &"') 
+				| where created_on_ist < datetime('" & EndofLastWeekFormatted &" ') 
+				| where order_status == 'cancelled'
+				| extend created_on_ist = datetime_add('hour', 168, created_on_ist)
+				| summarize COUNT_id = count() by bin(created_on_ist, 1d)
+				| extend time_period='1 Week Ago'
+				| project COUNT_id, created_on_ist, time_period;
+				currentweek
+				| union last_week",
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"created_on_ist", type datetime}}),
+				    #"Inserted Day Name" = Table.AddColumn(#"Changed Type", "Day Name", each Date.DayOfWeekName([created_on_ist]), type text),
+				    #"Extracted First Characters" = Table.TransformColumns(#"Inserted Day Name", {{"Day Name", each Text.Start(_, 3), type text}})
+				in
+				    #"Extracted First Characters"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

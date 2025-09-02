@@ -1,0 +1,114 @@
+table 'IM GMV (Last 7 Days Line)'
+	lineageTag: 46794029-2733-44df-a8bb-7a7c9801b39d
+
+	column COUNT_id
+		dataType: double
+		sourceProviderType: double
+		lineageTag: a7f412a9-d5fa-4b39-9800-d521dfd3a241
+		summarizeBy: sum
+		sourceColumn: COUNT_id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column created_at_ist
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2f702569-ac0e-4e80-9e4b-c6af63a60a28
+		summarizeBy: none
+		sourceColumn: created_at_ist
+
+		variation Variation
+			isDefault
+			relationship: 6fb87b17-97ac-46b5-b7c6-1f29a37eb63d
+			defaultHierarchy: LocalDateTable_6d81c2ef-7045-4b49-a6a3-4116ddcc6ff2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_period
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 08c762cf-0059-46f1-b38d-e549f3601e8a
+		summarizeBy: none
+		sourceColumn: time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 502a05a9-e480-45e3-8f1a-9b44c3ec95a9
+		summarizeBy: none
+		sourceColumn: Day Name
+		sortByColumn: created_at_ist
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM GMV (Last 7 Days Line)' = m
+		mode: import
+		queryGroup: 'IM\IM-Last 7 Days\IM-Sales\IM-GMV'
+		source = ```
+				let   
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 7 days ago in IST
+				    Last7Days = TodayDate - #duration(7, 0, 0, 0),
+				
+				    // Last 7 days current week to 12:00 AM IST
+				    StartOfLast7Days = DateTime.FromText(Date.ToText(Last7Days) & " 00:00:00"),
+				    StartOfLast7DaysFormatted = DateTime.ToText(StartOfLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				    CurrentDate = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofCurrentDateFormatted = DateTime.ToText(CurrentDate, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Last 7 days previous week to 12:00 AM IST
+				    LastWeekStartDateTime = StartOfLast7Days - #duration(7, 0, 0, 0),
+				    StartOfLastWeek = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekStartDateTime)) & " 00:00:00"),
+				    StartOfLastWeekFormatted = DateTime.ToText(StartOfLastWeek, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLastWeekFormatted = StartOfLast7DaysFormatted,
+				
+				    TableName = IMTableName,
+				
+				    Query = "let current_week = " & TableName & " 
+				| where created_at_ist >= datetime('"& StartOfLast7DaysFormatted &"') 
+				| where created_at_ist < datetime('"& EndofCurrentDateFormatted &"') 
+				| extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				| where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				| summarize COUNT_id = sum(gmv) by bin(created_at_ist, 1d)
+				| extend time_period='Daily Trend'
+				| project COUNT_id, created_at_ist, time_period;
+				let last_week = " & TableName & " 
+				| where created_at_ist >= datetime('"& StartOfLastWeekFormatted &"') 
+				| where created_at_ist < datetime('"& EndofLastWeekFormatted &"') 
+				| where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED')
+				| extend created_at_ist = datetime_add('hour', 168, created_at_ist)
+				| summarize COUNT_id = sum(gmv) by bin(created_at_ist, 1d)
+				| extend time_period='1 Week Ago'
+				| project COUNT_id, created_at_ist, time_period;
+				current_week
+				| union last_week",
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"created_at_ist", type datetime}}),
+				       #"Inserted Day Name" = Table.AddColumn(#"Changed Type", "Day Name", each Date.DayOfWeekName([created_at_ist]), type text),
+				    #"Extracted First Characters" = Table.TransformColumns(#"Inserted Day Name", {{"Day Name", each Text.Start(_, 3), type text}})
+				in
+				    #"Extracted First Characters"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,80 @@
+table 'IM WOW% GMV- Last 7 Days'
+	lineageTag: 3dad3d78-1f87-4c2f-b93f-88a6419d459f
+
+	column print_0
+		dataType: double
+		lineageTag: 7228ce6c-846a-41dc-963d-37ea4febdc70
+		summarizeBy: sum
+		sourceColumn: print_0
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'IM WOW% GMV- Last 7 Days' = m
+		mode: import
+		queryGroup: 'IM\IM-Last 7 Days\IM-Sales\IM-GMV'
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 7 days ago in IST
+				    Last7Days = TodayDate - #duration(7, 0, 0, 0),
+				
+				    // Last 7 days current week to 12:00 AM IST
+				    StartOfLast7Days = DateTime.FromText(Date.ToText(Last7Days) & " 00:00:00"),
+				    StartOfLast7DaysFormatted = DateTime.ToText(StartOfLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				    CurrentDate = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofCurrentDateFormatted = DateTime.ToText(CurrentDate, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Last 7 days previous week to 12:00 AM IST
+				    LastWeekStartDateTime = StartOfLast7Days - #duration(7, 0, 0, 0),
+				    StartOfLastWeek = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekStartDateTime)) & " 00:00:00"),
+				    StartOfLastWeekFormatted = DateTime.ToText(StartOfLastWeek, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLastWeekFormatted = StartOfLast7DaysFormatted,
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // Format the query with dynamic start and end times
+				   
+				    Query = "let current_week = " & TableName & "
+				    | where created_at_ist >= datetime('" & StartOfLast7DaysFormatted & "')
+				    | where  created_at_ist < datetime(' " & EndofCurrentDateFormatted & " ')
+				    | extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				    | summarize GMV = round(sum(gmv), 2) by city, region, zone, store_id, delivery_type
+				    | summarize sum(GMV);
+				    let last_week = " & TableName & "
+				    | where created_at_ist >= datetime('"& StartOfLastWeekFormatted &"') 
+				    | where created_at_ist < datetime('"& EndofLastWeekFormatted &"') 
+				    | extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				    | summarize GMV = round(sum(gmv), 2) by city, region, zone, store_id, delivery_type
+				    | summarize sum(GMV);
+				    // Run below to check green
+				    let currentweekCount = toscalar(current_week);
+				    let lastweekcount = toscalar(last_week);
+				    let percentage = toscalar(toreal((((toreal(currentweekCount) - toreal(lastweekcount)) / toreal(lastweekcount)) * 100)));
+				    print(round(percentage, 2))"
+				,
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
