@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "770ead236e8eea7a58fc",
+  "position": {
+    "x": 0,
+    "y": 6.0196787030335415,
+    "z": 1500,
+    "height": 86,
+    "width": 234,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow FTU Color Last 7 Days"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow FTU Color Last 7 Days",
+              "nativeQueryRef": "Arrow FTU Color Last 7 Days"
+            }
+          ]
+        },
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food Transacting Users (Last 7 Days)"
+                        }
+                      },
+                      "Property": "Count"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food Transacting Users (Last 7 Days).Count)",
+              "nativeQueryRef": "Sum of Count"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% FTU Last 7 Days"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% FTU Last 7 Days",
+              "nativeQueryRef": "Arrow WOW% FTU Last 7 Days"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Transacting Users %-L7D"
+                }
+              },
+              "queryRef": "ALL Measures.Transacting Users %-L7D",
+              "nativeQueryRef": "Transacting Users %-L7D"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food Transacting Users (Last 7 Days)"
+                      }
+                    },
+                    "Property": "Count"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "8023dfc239ac15db1760"
+}

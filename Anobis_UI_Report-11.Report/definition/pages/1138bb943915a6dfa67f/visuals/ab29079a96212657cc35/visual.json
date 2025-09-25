@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "ab29079a96212657cc35",
+  "position": {
+    "x": 0,
+    "y": 12.472727948140635,
+    "z": 1500,
+    "height": 83.74545454545455,
+    "width": 219.16363636363639,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "SDC-L4W"
+                }
+              },
+              "queryRef": "ALL Measures.SDC-L4W",
+              "nativeQueryRef": "SDC-L4W"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "SDC %-L4W"
+                }
+              },
+              "queryRef": "ALL Measures.SDC %-L4W",
+              "nativeQueryRef": "SDC %-L4W"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% SDC Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% SDC Last 4 Weeks",
+              "nativeQueryRef": "Arrow WOW% SDC Last 4 Weeks"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow SDC Color Last 4 weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow SDC Color Last 4 weeks",
+              "nativeQueryRef": "Arrow SDC Color Last 4 weeks"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "ace0d5f239e66d820037"
+}

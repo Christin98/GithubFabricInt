@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "23a71637e3fd1218eb8e",
+  "position": {
+    "x": 14.751757765166374,
+    "y": 155.56643356643357,
+    "z": 3000,
+    "height": 83.74545454545455,
+    "width": 274.40000000000003,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food Orders Count (Last 7 Days)"
+                        }
+                      },
+                      "Property": "count_"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food Orders Count (Last 7 Days).count_)",
+              "nativeQueryRef": "Sum of count_"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Completed Orders %-L7D"
+                }
+              },
+              "queryRef": "ALL Measures.Completed Orders %-L7D",
+              "nativeQueryRef": "Completed Orders %-L7D"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% Order Last 7 Days"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% Order Last 7 Days",
+              "nativeQueryRef": "Arrow WOW% Order Last 7 Days"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow Order Color Last 7 Days"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow Order Color Last 7 Days",
+              "nativeQueryRef": "Arrow Order Color Last 7 Days"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food Orders Count (Last 7 Days)"
+                      }
+                    },
+                    "Property": "count_"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "5f678fa84b4c10703921"
+}

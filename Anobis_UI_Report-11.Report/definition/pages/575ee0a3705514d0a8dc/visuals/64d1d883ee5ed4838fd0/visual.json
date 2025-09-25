@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "64d1d883ee5ed4838fd0",
+  "position": {
+    "x": 0,
+    "y": 10.019785558574426,
+    "z": 1500,
+    "height": 88,
+    "width": 222,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM AOV (Last 7 Days)"
+                        }
+                      },
+                      "Property": "Column1"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(IM AOV (Last 7 Days).Column1)",
+              "nativeQueryRef": "Sum of Column1"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow AOV Color IM-L7D"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow AOV Color IM-L7D",
+              "nativeQueryRef": "Arrow AOV Color IM-L7D"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "IM AOV % WOW-L7D"
+                }
+              },
+              "queryRef": "ALL Measures.IM AOV % WOW-L7D",
+              "nativeQueryRef": "IM AOV % WOW-L7D"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% AOV IM -L7D"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% AOV IM -L7D",
+              "nativeQueryRef": "Arrow WOW% AOV IM -L7D"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "IM AOV (Last 7 Days)"
+                      }
+                    },
+                    "Property": "Column1"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "b863d3093cd19da6e357"
+}

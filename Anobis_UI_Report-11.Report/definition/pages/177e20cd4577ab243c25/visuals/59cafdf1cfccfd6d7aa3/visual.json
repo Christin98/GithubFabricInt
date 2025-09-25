@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "59cafdf1cfccfd6d7aa3",
+  "position": {
+    "x": 4.3002067875119234,
+    "y": 7.8594491927825247,
+    "z": 1500,
+    "height": 85,
+    "width": 220,
+    "tabOrder": 34011
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "RDC-Today"
+                }
+              },
+              "queryRef": "ALL Measures.RDC-Today",
+              "nativeQueryRef": "RDC-Today"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "RDC % WOW-Today"
+                }
+              },
+              "queryRef": "ALL Measures.RDC % WOW-Today",
+              "nativeQueryRef": "RDC % WOW-Today"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% RDC"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% RDC",
+              "nativeQueryRef": "Arrow WOW% RDC"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow RDC Color"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow RDC Color",
+              "nativeQueryRef": "Arrow RDC Color"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "ceea129ee58aaa5c9578"
+}

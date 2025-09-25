@@ -1,0 +1,141 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "f70c4b8e91dc978e1b2d",
+  "position": {
+    "x": 1.5131948343627057,
+    "y": 0.16656411359673731,
+    "z": 1500,
+    "height": 80.474452554744516,
+    "width": 214.5985401459854,
+    "tabOrder": 17005
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM CDC% -Last 4 Weeks"
+                        }
+                      },
+                      "Property": "CDC%"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(IM CDC% -Last 4 Weeks.CDC%)",
+              "nativeQueryRef": "First CDC%"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM CDC% WOW- Last 4 Weeks"
+                        }
+                      },
+                      "Property": "TrendArrow"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(IM CDC% WOW- Last 4 Weeks.TrendArrow)",
+              "nativeQueryRef": "First TrendArrow"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM CDC% WOW- Last 4 Weeks"
+                        }
+                      },
+                      "Property": "CDC% WoW"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(IM CDC% WOW- Last 4 Weeks.CDC% WoW)",
+              "nativeQueryRef": "First CDC% WoW"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM CDC% WOW- Last 4 Weeks"
+                        }
+                      },
+                      "Property": "TrendColor"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(IM CDC% WOW- Last 4 Weeks.TrendColor)",
+              "nativeQueryRef": "First TrendColor"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "bdab1a96f409f368f3a7"
+}

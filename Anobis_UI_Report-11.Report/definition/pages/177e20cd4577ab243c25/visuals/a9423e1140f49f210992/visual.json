@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "a9423e1140f49f210992",
+  "position": {
+    "x": 5.966873454178578,
+    "y": 11.432415321304177,
+    "z": 1500,
+    "height": 85,
+    "width": 220,
+    "tabOrder": 34010
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "CDC-Today"
+                }
+              },
+              "queryRef": "ALL Measures.CDC-Today",
+              "nativeQueryRef": "CDC-Today"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% CDC"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% CDC",
+              "nativeQueryRef": "Arrow WOW% CDC"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "CDC % WOW-Today"
+                }
+              },
+              "queryRef": "ALL Measures.CDC % WOW-Today",
+              "nativeQueryRef": "CDC % WOW-Today"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow CDC Color"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow CDC Color",
+              "nativeQueryRef": "Arrow CDC Color"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "12b953d28058a06b18b5"
+}

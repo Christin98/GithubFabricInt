@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "3dc842e11970c0bfaffb",
+  "position": {
+    "x": 7.2892531561217284,
+    "y": 152.40964461155312,
+    "z": 8250,
+    "height": 80.181818181818187,
+    "width": 274.40000000000003,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow Cancelled Color Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow Cancelled Color Last 4 Weeks",
+              "nativeQueryRef": "Arrow Cancelled Color Last 4 Weeks"
+            }
+          ]
+        },
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food Cancelled Orders (Last 4 weeks)"
+                        }
+                      },
+                      "Property": "count_"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food Cancelled Orders (Last 4 weeks).count_)",
+              "nativeQueryRef": "Sum of count_"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% cancelled Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% cancelled Last 4 Weeks",
+              "nativeQueryRef": "Arrow WOW% cancelled Last 4 Weeks"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Cancelled %-L4W"
+                }
+              },
+              "queryRef": "ALL Measures.Cancelled %-L4W",
+              "nativeQueryRef": "Cancelled %-L4W"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food Cancelled Orders (Last 4 weeks)"
+                      }
+                    },
+                    "Property": "count_"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "b75082ba9027093479b9"
+}

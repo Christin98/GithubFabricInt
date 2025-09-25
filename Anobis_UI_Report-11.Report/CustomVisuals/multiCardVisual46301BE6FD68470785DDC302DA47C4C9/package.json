@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0.0",
+  "author": {
+    "name": "ALOK",
+    "email": "alok.yadav@mandelbulbtech.com"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/multiCardVisual46301BE6FD68470785DDC302DA47C4C9.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "name": "multiCardVisual",
+    "displayName": "MultiCardVisual",
+    "version": "1.0.0.0",
+    "description": "MultiCardVisual",
+    "supportUrl": "www.multiCardVisual.com",
+    "gitHubUrl": "",
+    "visualClassName": "Visual"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

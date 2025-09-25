@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "5ee5f22346bad3220145",
+  "position": {
+    "x": 0,
+    "y": 15.715956427188718,
+    "z": 0,
+    "height": 72.857142857142861,
+    "width": 220,
+    "tabOrder": 11007
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow GMV Color Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow GMV Color Last 4 Weeks",
+              "nativeQueryRef": "Arrow GMV Color Last 4 Weeks"
+            }
+          ]
+        },
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food GMV (Last 4 Weeks)"
+                        }
+                      },
+                      "Property": "sum_gmv_total"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food GMV (Last 4 Weeks).sum_gmv_total)",
+              "nativeQueryRef": "Sum of sum_gmv_total"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "GMV %-L4W"
+                }
+              },
+              "queryRef": "ALL Measures.GMV %-L4W",
+              "nativeQueryRef": "GMV %-L4W"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% gmv Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% gmv Last 4 Weeks",
+              "nativeQueryRef": "Arrow WOW% gmv Last 4 Weeks"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food GMV (Last 4 Weeks)"
+                      }
+                    },
+                    "Property": "sum_gmv_total"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "184a7a4559c020391d60"
+}

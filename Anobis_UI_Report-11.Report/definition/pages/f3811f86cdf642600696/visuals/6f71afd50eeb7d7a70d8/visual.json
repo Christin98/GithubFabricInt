@@ -1,0 +1,141 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "6f71afd50eeb7d7a70d8",
+  "position": {
+    "x": 0,
+    "y": 9.4699734571998633,
+    "z": 1500,
+    "height": 80.474452554744516,
+    "width": 212.81021897810217,
+    "tabOrder": 17004
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM SDC% -Last 4 Weeks"
+                        }
+                      },
+                      "Property": "SDC%"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(IM SDC% -Last 4 Weeks.SDC%)",
+              "nativeQueryRef": "First SDC%"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM SDC% WOW- Last 4 Weeks"
+                        }
+                      },
+                      "Property": "SDC% WoW"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(IM SDC% WOW- Last 4 Weeks.SDC% WoW)",
+              "nativeQueryRef": "First SDC% WoW"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM SDC% WOW- Last 4 Weeks"
+                        }
+                      },
+                      "Property": "TrendArrow"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(IM SDC% WOW- Last 4 Weeks.TrendArrow)",
+              "nativeQueryRef": "First TrendArrow"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM SDC% WOW- Last 4 Weeks"
+                        }
+                      },
+                      "Property": "TrendColor"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(IM SDC% WOW- Last 4 Weeks.TrendColor)",
+              "nativeQueryRef": "First TrendColor"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "32289a694080c2ad6ae3"
+}

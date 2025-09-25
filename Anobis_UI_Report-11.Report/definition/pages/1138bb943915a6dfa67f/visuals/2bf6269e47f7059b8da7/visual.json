@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "2bf6269e47f7059b8da7",
+  "position": {
+    "x": 7.1330824052023463,
+    "y": 7.12726662748749,
+    "z": 1500,
+    "height": 89.0909090909091,
+    "width": 220.94545454545457,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "RDC-L4W"
+                }
+              },
+              "queryRef": "ALL Measures.RDC-L4W",
+              "nativeQueryRef": "RDC-L4W"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% RDC Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% RDC Last 4 Weeks",
+              "nativeQueryRef": "Arrow WOW% RDC Last 4 Weeks"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "RDC %-L4W"
+                }
+              },
+              "queryRef": "ALL Measures.RDC %-L4W",
+              "nativeQueryRef": "RDC %-L4W"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow RDC Color Last 4 Weeeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow RDC Color Last 4 Weeeks",
+              "nativeQueryRef": "Arrow RDC Color Last 4 Weeeks"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "c972b1e6300200eb4060"
+}

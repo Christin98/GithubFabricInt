@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "e59cd3b343f128e91307",
+  "position": {
+    "x": 1.7797544864528969,
+    "y": 21.214160058691213,
+    "z": 1500,
+    "height": 67.709090909090918,
+    "width": 215.60000000000002,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food Transacting Restaurants Decomposition Treee- Last 4 Weeks"
+                        }
+                      },
+                      "Property": "ftr"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food Transacting Restaurants Decomposition Treee- Last 4 Weeks.ftr)",
+              "nativeQueryRef": "Sum of ftr"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% FTR Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% FTR Last 4 Weeks",
+              "nativeQueryRef": "Arrow WOW% FTR Last 4 Weeks"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Transacting Restaurants %-L4W"
+                }
+              },
+              "queryRef": "ALL Measures.Transacting Restaurants %-L4W",
+              "nativeQueryRef": "Transacting Restaurants %-L4W"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow FTR Color Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow FTR Color Last 4 Weeks",
+              "nativeQueryRef": "Arrow FTR Color Last 4 Weeks"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food Transacting Restaurants Decomposition Treee- Last 4 Weeks"
+                      }
+                    },
+                    "Property": "ftr"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "53f90c97a1b596002c60"
+}

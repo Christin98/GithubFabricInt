@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "25c0807bacdbf52f39e0",
+  "position": {
+    "x": 0,
+    "y": 2.6273349472489169,
+    "z": 1500,
+    "height": 86,
+    "width": 234,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "RDC-L7D"
+                }
+              },
+              "queryRef": "ALL Measures.RDC-L7D",
+              "nativeQueryRef": "RDC-L7D"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% RDC Last 7 Days"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% RDC Last 7 Days",
+              "nativeQueryRef": "Arrow WOW% RDC Last 7 Days"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "RDC %-L7D"
+                }
+              },
+              "queryRef": "ALL Measures.RDC %-L7D",
+              "nativeQueryRef": "RDC %-L7D"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow RDC Color Last 7 Days"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow RDC Color Last 7 Days",
+              "nativeQueryRef": "Arrow RDC Color Last 7 Days"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "50ad58d7a582e105738a"
+}

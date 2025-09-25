@@ -1,0 +1,175 @@
+{
+  "visual": {
+    "name": "multiCardVisual",
+    "displayName": "MultiCardVisual",
+    "guid": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "MultiCardVisual",
+    "supportUrl": "www.multiCardVisual.com",
+    "gitHubUrl": ""
+  },
+  "author": {
+    "name": "ALOK",
+    "email": "alok.yadav@mandelbulbtech.com"
+  },
+  "apiVersion": "5.3.0",
+  "style": "style/visual.less",
+  "stringResources": {},
+  "capabilities": {
+    "dataRoles": [
+      {
+        "name": "bigNumber",
+        "kind": "Measure",
+        "displayName": "Big Number"
+      },
+      {
+        "name": "arrow",
+        "kind": "Measure",
+        "displayName": "Arrow"
+      },
+      {
+        "name": "wow",
+        "kind": "Measure",
+        "displayName": "WOW"
+      },
+      {
+        "name": "colorMeasure",
+        "kind": "Measure",
+        "displayName": "Color Measure"
+      }
+    ],
+    "dataViewMappings": [
+      {
+        "conditions": [
+          {
+            "bigNumber": {
+              "max": 1
+            },
+            "arrow": {
+              "max": 1
+            },
+            "wow": {
+              "max": 1
+            },
+            "colorMeasure": {
+              "max": 1
+            }
+          }
+        ],
+        "categorical": {
+          "values": {
+            "select": [
+              {
+                "bind": {
+                  "to": "bigNumber"
+                }
+              },
+              {
+                "bind": {
+                  "to": "arrow"
+                }
+              },
+              {
+                "bind": {
+                  "to": "wow"
+                }
+              },
+              {
+                "bind": {
+                  "to": "colorMeasure"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "objects": {
+      "layoutSettings": {
+        "displayName": "Layout Settings",
+        "properties": {
+          "padding": {
+            "displayName": "Row Padding",
+            "type": {
+              "numeric": true
+            }
+          }
+        }
+      },
+      "bigNumberSettings": {
+        "displayName": "Big Number",
+        "properties": {
+          "fontSize": {
+            "displayName": "Font Size",
+            "type": {
+              "numeric": true
+            }
+          },
+          "color": {
+            "displayName": "Color",
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "arrowSettings": {
+        "displayName": "Arrow",
+        "properties": {
+          "fontSize": {
+            "displayName": "Font Size",
+            "type": {
+              "numeric": true
+            }
+          },
+          "color": {
+            "displayName": "Color",
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "wowSettings": {
+        "displayName": "WOW",
+        "properties": {
+          "fontSize": {
+            "displayName": "Font Size",
+            "type": {
+              "numeric": true
+            }
+          },
+          "color": {
+            "displayName": "Color",
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "privileges": []
+  },
+  "content": {
+    "js": "var multiCardVisual46301BE6FD68470785DDC302DA47C4C9;(()=>{\"use strict\";var t={279:(t,e,i)=>{function n(t,e=!1){if(null==t||\"number\"==typeof t&&isNaN(t))return\"NaN\";const i=\"number\"==typeof t?t:parseFloat(t);if(isNaN(i))return\"NaN\";if(e)return i.toFixed(2);const n=Math.abs(i);let o;return o=n>=1e9?(i/1e9).toFixed(2)+\"B\":n>=1e6?(i/1e6).toFixed(2)+\"M\":n>=1e3?(i/1e3).toFixed(2)+\"K\":i.toFixed(2),o}i.d(e,{b:()=>o});class o{target;bigNumberElement;arrowElement;wowElement;container;rightBottomContainer;constructor(t){this.target=t.element,this.container=document.createElement(\"div\"),this.container.style.position=\"relative\",this.container.style.width=\"100%\",this.container.style.height=\"100%\",this.container.style.display=\"flex\",this.container.style.flexDirection=\"column\",this.container.style.justifyContent=\"flex-start\",this.container.style.alignItems=\"flex-start\",this.bigNumberElement=document.createElement(\"div\"),this.bigNumberElement.style.fontSize=\"26px\",this.bigNumberElement.style.fontWeight=\"bold\",this.bigNumberElement.style.color=\"#ffffff\",this.bigNumberElement.style.alignSelf=\"flex-start\",this.bigNumberElement.style.margin=\"4px\",this.rightBottomContainer=document.createElement(\"div\"),this.rightBottomContainer.style.position=\"absolute\",this.rightBottomContainer.style.bottom=\"20px\",this.rightBottomContainer.style.right=\"8px\",this.rightBottomContainer.style.display=\"flex\",this.rightBottomContainer.style.flexDirection=\"row\",this.rightBottomContainer.style.alignItems=\"center\",this.rightBottomContainer.style.gap=\"4px\",this.arrowElement=document.createElement(\"div\"),this.arrowElement.style.fontSize=\"16px\",this.arrowElement.style.color=\"#666\",this.wowElement=document.createElement(\"div\"),this.wowElement.style.fontSize=\"16px\",this.wowElement.style.color=\"#666\",this.wowElement.style.marginRight=\"8px\",this.rightBottomContainer.appendChild(this.arrowElement),this.rightBottomContainer.appendChild(this.wowElement),this.container.appendChild(this.bigNumberElement),this.container.appendChild(this.rightBottomContainer),this.target.appendChild(this.container)}update(t){const e=t.dataViews&&t.dataViews[0],i=e?.categorical?.values,o=e?.metadata?.objects,s=o?.layoutSettings?.padding??8;this.container.style.padding=`${s}px`;let l=\"\";if(i&&i[0]){const t=i[0].source?.displayName||\"\",e=n(i[0].values[0],!1);l=t.includes(\"CDC\")||t.includes(\"SDC\")||t.includes(\"RDC\")?e+\"%\":e}if(this.bigNumberElement.innerText=l,this.arrowElement.innerText=i&&i[1]&&null!=i[1].values[0]?String(i[1].values[0]):\"\",this.wowElement.innerText=i&&i[2]?n(i[2].values[0],!0)+\"%\":\"\",i&&i[3]&&null!=i[3].values[0]){const t=i[3].values[0];let e=\"#666\";\"string\"==typeof t?e=t:\"number\"==typeof t&&(e=t<0?\"#d32f2f\":0===t?\"#757575\":\"#388e3c\"),this.arrowElement.style.color=e,this.wowElement.style.color=e}else this.arrowElement.style.color=\"#666\",this.wowElement.style.color=\"#666\"}}}},e={};function i(n){var o=e[n];if(void 0!==o)return o.exports;var s=e[n]={exports:{}};return t[n](s,s.exports,i),s.exports}i.d=(t,e)=>{for(var n in e)i.o(e,n)&&!i.o(t,n)&&Object.defineProperty(t,n,{enumerable:!0,get:e[n]})},i.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),i.r=t=>{\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(t,\"__esModule\",{value:!0})};var n={};(()=>{i.r(n),i.d(n,{default:()=>s});var t=i(279),e=window.powerbi,o={name:\"multiCardVisual46301BE6FD68470785DDC302DA47C4C9\",displayName:\"MultiCardVisual\",class:\"Visual\",apiVersion:\"5.3.0\",create:e=>{if(t.b)return new t.b(e);throw\"Visual instance not found\"},createModalDialog:(t,e,i)=>{const n=globalThis.dialogRegistry;t in n&&new n[t](e,i)},custom:!0};void 0!==e&&(e.visuals=e.visuals||{},e.visuals.plugins=e.visuals.plugins||{},e.visuals.plugins.multiCardVisual46301BE6FD68470785DDC302DA47C4C9=o);const s=o})(),multiCardVisual46301BE6FD68470785DDC302DA47C4C9=n})();",
+    "iconBase64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpBOEJGMzkxN0NBRDNFMDExQTcxQ0JFODI3ODBCQUE5RSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3NEY1QjA1NUQ0OTAxMUUwQTgxREI2NjMxMkNEMUNEMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3NEY1QjA1NEQ0OTAxMUUwQTgxREI2NjMxMkNEMUNEMyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5Mjk5RDU1ODBGRDRFMDExQTcxQ0JFODI3ODBCQUE5RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBOEJGMzkxN0NBRDNFMDExQTcxQ0JFODI3ODBCQUE5RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpDoNX0AAAI3SURBVHjarJRLSFVRFIY9t7SiRDGLoEEPCRJRaCSYkxCiFCXCF+LIMExQLkilgumgwkbdBuWDRC2EomhURCOjgagkXEgKLUKhidobM6H0+i34rxyPnuvEA5/rXPda/1l7739vJxKJxG3ls93+hEKhTILxJhgMftmsiPxdhHw4CfepeR8dCyjWwwB0kZy3iVgCoQ2ewnmXxhrBD7Cgr/ZQVA17fDRPw2UYhzK6G99IsBse6/0QNME+H8FT4EA/YiPqOgA1q4IMzBNuw6iKjkCpj+Av+AdnEEmD3bxfhzvuDk30HaEaLsEkXCO53rN+Bwg5qsvTuj/TjGYtx9nINhRmEx7AYWiFW7AXOuEcbPOUvIZ2mnrl+PkQUbNEh4QHNKUSDdsSBWEOlmxTEfvs26FL9Khe211if6Acgee+xo7xzMgBxfq9qPe3fgWBGN2lEnqtG9nExM7CV3jp3bDos2bKJB0nHFRxAxRpA/5CIXyHh5ABv6GZqd9dJ6iz2SjbxMMypGhJFtTlNzu3kK7xgDxpove8U66FK2A+s6nul5gVVMEL+Ak7lG/T+g9JcIOGar2CRUoogxMwpP/bLTJMB9bRhDbkk5bBUU0y3ES0xS04CBfN9RSHiY90vJK0BHaSzG9h2eejS3RJeVfdtrGzuGyd8CX7Yq6ExuCH63jaVMPkFOv6OibB6DKs2+VEQp+WYBoqERn2sVWWRNN0YurIfeL14U6YkpkLYCSG6e0yqdCxvKBLIm5FgAEAV0nKuwMYRUsAAAAASUVORK5CYII="
+  },
+  "visualEntryPoint": "",
+  "externalJS": [],
+  "assets": {
+    "icon": "assets/icon.png"
+  }
+}

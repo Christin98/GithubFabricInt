@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "86b5ddac4e0275126e20",
+  "position": {
+    "x": 0,
+    "y": 6.6288460550106265,
+    "z": 1500,
+    "height": 90,
+    "width": 218.33333333333334,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "SDC-Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.SDC-Yesterday",
+              "nativeQueryRef": "SDC-Yesterday"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "SDC %-Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.SDC %-Yesterday",
+              "nativeQueryRef": "SDC %-Yesterday"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% SDC yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% SDC yesterday",
+              "nativeQueryRef": "Arrow WOW% SDC yesterday"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow SDC Color yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow SDC Color yesterday",
+              "nativeQueryRef": "Arrow SDC Color yesterday"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "0351653d1e10a93d04c0"
+}

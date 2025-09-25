@@ -1,0 +1,148 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "804a2a74daef1f67a9b2",
+  "position": {
+    "x": 2.8343934423556663,
+    "y": 31.407107934784865,
+    "z": 0,
+    "height": 67.142857142857153,
+    "width": 221.42857142857144
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food AOV Last 4 Weeks"
+                        }
+                      },
+                      "Property": "avg_gmv_total"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food AOV Last 4 Weeks.avg_gmv_total)",
+              "nativeQueryRef": "Sum of avg_gmv_total"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "AOV %-L4W"
+                }
+              },
+              "queryRef": "ALL Measures.AOV %-L4W",
+              "nativeQueryRef": "AOV %-L4W"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% AOV Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% AOV Last 4 Weeks",
+              "nativeQueryRef": "Arrow WOW% AOV Last 4 Weeks"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow AOV Color Last 4 Weeks"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow AOV Color Last 4 Weeks",
+              "nativeQueryRef": "Arrow AOV Color Last 4 Weeks"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food AOV Last 4 Weeks"
+                      }
+                    },
+                    "Property": "avg_gmv_total"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "69313f650dd03a304103"
+}

@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "f3b809b28b71e95b82bb",
+  "position": {
+    "x": 8.2472857154835815,
+    "y": 0,
+    "z": 1500,
+    "height": 93.333333333333343,
+    "width": 215,
+    "tabOrder": 28012
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "RDC-Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.RDC-Yesterday",
+              "nativeQueryRef": "RDC-Yesterday"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% RDC Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% RDC Yesterday",
+              "nativeQueryRef": "Arrow WOW% RDC Yesterday"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "RDC %-Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.RDC %-Yesterday",
+              "nativeQueryRef": "RDC %-Yesterday"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow RDC Color Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow RDC Color Yesterday",
+              "nativeQueryRef": "Arrow RDC Color Yesterday"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "a0a9f1b6ca0003a9746d"
+}

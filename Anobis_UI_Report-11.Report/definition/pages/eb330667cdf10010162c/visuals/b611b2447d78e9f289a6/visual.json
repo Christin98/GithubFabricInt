@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "b611b2447d78e9f289a6",
+  "position": {
+    "x": 0,
+    "y": 3.361634957177273,
+    "z": 500,
+    "height": 88.333333333333343,
+    "width": 226.66666666666669,
+    "tabOrder": 8002
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food AOV (Yesterday)"
+                        }
+                      },
+                      "Property": "avg_gmv_total"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food AOV (Yesterday).avg_gmv_total)",
+              "nativeQueryRef": "Sum of avg_gmv_total"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "AOV % WOW-Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.AOV % WOW-Yesterday",
+              "nativeQueryRef": "AOV % WOW-Yesterday"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% AOV-yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% AOV-yesterday",
+              "nativeQueryRef": "Arrow WOW% AOV-yesterday"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow AOV Color yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow AOV Color yesterday",
+              "nativeQueryRef": "Arrow AOV Color yesterday"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food AOV (Yesterday)"
+                      }
+                    },
+                    "Property": "avg_gmv_total"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "0e020da92004b69b29b5"
+}

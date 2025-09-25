@@ -1,0 +1,69 @@
+table decomposition_Data
+	lineageTag: 6cf79a7f-1858-40fe-8d7f-078417ca12e1
+
+	measure Measure = If(SUM(decomposition_Data[FTU]) >= 129991240, "Red", "Green")
+		lineageTag: dde3bfbc-8388-4f8c-b696-176fb6944765
+
+	column City
+		dataType: string
+		lineageTag: f9ad3487-8cd4-4966-9564-fd01cf5478b1
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Area
+		dataType: string
+		lineageTag: 88891b51-d81a-4eec-85f9-e2c281c6273a
+		summarizeBy: none
+		sourceColumn: Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit'
+		dataType: string
+		lineageTag: caf18463-3aae-4581-b054-8a8b4ca10fe7
+		summarizeBy: none
+		sourceColumn: Business Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Classifier'
+		dataType: string
+		lineageTag: 73b83f81-b1ce-4b6a-88f8-e27f8c1178bd
+		summarizeBy: none
+		sourceColumn: Business Classifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time Slot'
+		dataType: string
+		lineageTag: 45193ead-c396-4316-858e-1dd9da31649d
+		summarizeBy: none
+		sourceColumn: Time Slot
+
+		annotation SummarizationSetBy = Automatic
+
+	column FTU
+		dataType: int64
+		formatString: 0
+		lineageTag: f1c92d4f-2728-47f7-9d99-6f75242b9d3c
+		summarizeBy: sum
+		sourceColumn: FTU
+
+		annotation SummarizationSetBy = Automatic
+
+	partition decomposition_Data = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\chris\Downloads\data.csv"),[Delimiter=",", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"City", type text}, {"Area", type text}, {"Business Unit", type text}, {"Business Classifier", type text}, {"Time Slot", type text}, {"FTU", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

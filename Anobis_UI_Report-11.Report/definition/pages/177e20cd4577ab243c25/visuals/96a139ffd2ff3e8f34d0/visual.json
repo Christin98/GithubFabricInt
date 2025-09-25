@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "96a139ffd2ff3e8f34d0",
+  "position": {
+    "x": 0,
+    "y": 7.8594491927825247,
+    "z": 1500,
+    "height": 85,
+    "width": 220,
+    "tabOrder": 34012
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "SDC-Today"
+                }
+              },
+              "queryRef": "ALL Measures.SDC-Today",
+              "nativeQueryRef": "SDC-Today"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% SDC"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% SDC",
+              "nativeQueryRef": "Arrow WOW% SDC"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "SDC % WOW-Today"
+                }
+              },
+              "queryRef": "ALL Measures.SDC % WOW-Today",
+              "nativeQueryRef": "SDC % WOW-Today"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow SDC Color"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow SDC Color",
+              "nativeQueryRef": "Arrow SDC Color"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "5d5e22302de29b69d3d3"
+}

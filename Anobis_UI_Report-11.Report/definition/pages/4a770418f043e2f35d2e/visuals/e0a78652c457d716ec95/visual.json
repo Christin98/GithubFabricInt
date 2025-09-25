@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "e0a78652c457d716ec95",
+  "position": {
+    "x": 12.829098503306646,
+    "y": 4.9230769230769234,
+    "z": 1000,
+    "height": 945.40712835308568,
+    "width": 467.17090149669338
+  },
+  "visualGroup": {
+    "displayName": "IM Completed FS",
+    "groupMode": "ScaleMode"
+  }
+}

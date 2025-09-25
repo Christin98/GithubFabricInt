@@ -1,0 +1,71 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.62\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 2",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "c82676cb270db46c48db",
+      "ordinal": 1,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "eedb8d18a705d08e92e9",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"d6bbbcd87e174603593c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.051259679354347,\"y\":0,\"z\":0,\"width\":938.1175700730723,\"height\":432.2041662122369,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"debugVisual\",\"projections\":{\"category\":[{\"queryRef\":\"decomposition_Data.City\"},{\"queryRef\":\"decomposition_Data.Area\"},{\"queryRef\":\"decomposition_Data.Business Classifier\"},{\"queryRef\":\"decomposition_Data.Business Unit\"},{\"queryRef\":\"decomposition_Data.Time Slot\"}],\"ftu\":[{\"queryRef\":\"Sum(decomposition_Data.FTU)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"decomposition_Data\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"City\"},\"Name\":\"decomposition_Data.City\",\"NativeReferenceName\":\"City\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Area\"},\"Name\":\"decomposition_Data.Area\",\"NativeReferenceName\":\"Area\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Business Classifier\"},\"Name\":\"decomposition_Data.Business Classifier\",\"NativeReferenceName\":\"Business Classifier\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Business Unit\"},\"Name\":\"decomposition_Data.Business Unit\",\"NativeReferenceName\":\"Business Unit\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Time Slot\"},\"Name\":\"decomposition_Data.Time Slot\",\"NativeReferenceName\":\"Time Slot\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"FTU\"}},\"Function\":0},\"Name\":\"Sum(decomposition_Data.FTU)\",\"NativeReferenceName\":\"Sum of FTU\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"FTU\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 432.20,
+          "width": 938.12,
+          "x": 10.05,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ed3fb1e6dd7bcb792b5a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":957.0675753345923,\"y\":0,\"width\":322.93242466540767,\"height\":719.7175465966008,\"z\":1}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"decomposition_Data.City\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"decomposition_Data\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"City\"},\"Name\":\"decomposition_Data.City\",\"NativeReferenceName\":\"City\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"selfFilter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"decomposition_Data\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Contains\":{\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"City\"}},\"Right\":{\"Literal\":{\"Value\":\"'ban'\"}}}},\"Annotations\":{\"PowerBI.MParameterBehavior\":1}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 719.72,
+          "width": 322.93,
+          "x": 957.07,
+          "y": 0.00,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"fb1a91a9835d09391884\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.051259679354347,\"y\":378.59744792234704,\"z\":2,\"width\":938.1175700730723,\"height\":341.74282909804776,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"decomposition_Data.City\",\"active\":true},{\"queryRef\":\"decomposition_Data.Area\",\"active\":true},{\"queryRef\":\"decomposition_Data.Business Unit\"},{\"queryRef\":\"decomposition_Data.Business Classifier\"},{\"queryRef\":\"decomposition_Data.Time Slot\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"decomposition_Data\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Area\"},\"Name\":\"decomposition_Data.Area\",\"NativeReferenceName\":\"Area\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Business Unit\"},\"Name\":\"decomposition_Data.Business Unit\",\"NativeReferenceName\":\"Business Unit\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Business Classifier\"},\"Name\":\"decomposition_Data.Business Classifier\",\"NativeReferenceName\":\"Business Classifier\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"City\"},\"Name\":\"decomposition_Data.City\",\"NativeReferenceName\":\"City\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Time Slot\"},\"Name\":\"decomposition_Data.Time Slot\",\"NativeReferenceName\":\"Time Slot\"}]},\"expansionStates\":[{\"roles\":[\"Rows\"],\"levels\":[{\"queryRefs\":[\"decomposition_Data.City\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"decomposition_Data\"}},\"Property\":\"City\"}}],\"isPinned\":true},{\"queryRefs\":[\"decomposition_Data.Area\"],\"isCollapsed\":true,\"isPinned\":true},{\"queryRefs\":[\"decomposition_Data.Business Unit\"],\"isCollapsed\":true},{\"queryRefs\":[\"decomposition_Data.Business Classifier\"],\"isCollapsed\":true},{\"queryRefs\":[\"decomposition_Data.Time Slot\"],\"isCollapsed\":true}],\"root\":{\"identityValues\":null,\"children\":[{\"identityValues\":[{\"Literal\":{\"Value\":\"'Abohar'\"}}],\"isToggled\":true}]}}],\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 341.74,
+          "width": 938.12,
+          "x": 10.05,
+          "y": 378.60,
+          "z": 2.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

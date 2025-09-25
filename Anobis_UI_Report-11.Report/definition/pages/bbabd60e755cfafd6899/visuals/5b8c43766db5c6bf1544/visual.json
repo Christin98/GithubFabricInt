@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "5b8c43766db5c6bf1544",
+  "position": {
+    "x": 0,
+    "y": 8.4846765998996911,
+    "z": 1500,
+    "height": 88.333333333333343,
+    "width": 216.66666666666669,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "multiCardVisual46301BE6FD68470785DDC302DA47C4C9",
+    "query": {
+      "queryState": {
+        "bigNumber": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "CDC-Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.CDC-Yesterday",
+              "nativeQueryRef": "CDC-Yesterday"
+            }
+          ]
+        },
+        "arrow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow WOW% CDC Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow WOW% CDC Yesterday",
+              "nativeQueryRef": "Arrow WOW% CDC Yesterday"
+            }
+          ]
+        },
+        "wow": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "CDC % WOW-Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.CDC % WOW-Yesterday",
+              "nativeQueryRef": "CDC % WOW-Yesterday"
+            }
+          ]
+        },
+        "colorMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "Arrow CDC Color Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.Arrow CDC Color Yesterday",
+              "nativeQueryRef": "Arrow CDC Color Yesterday"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "913af40db04947ca71d9"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "c664fe8a2aca277921b1",
+  "position": {
+    "x": 0,
+    "y": 254.6143435049101,
+    "z": 6000,
+    "height": 101.21102663425495,
+    "width": 242,
+    "tabOrder": 13000
+  },
+  "visualGroup": {
+    "displayName": "Grp-FoodGMV",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "beb36350cb7010703768"
+}
